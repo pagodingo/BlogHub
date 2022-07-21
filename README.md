@@ -6,7 +6,7 @@
 
 > Ex: [PagoDingo/notes-pega](https://github.com/pagodingo/notes-pega)
 
-#### 2. Clone <u>this</u> repository, include your source, as well as your desired homepage.
+#### 2. Clone <u>this</u> repository, add your source, as well as your desired homepage.
 
 ```js
 # environment
@@ -18,3 +18,7 @@ Ex: PagoDingo/notes-pega, pega-2-1.md
 ```
 
 #### 3. Publish.
+
+Recommendations
+- [Netlify](https://www.netlify.com/)
+- [GitHub Pages](https://pages.github.com/)
