@@ -2,11 +2,11 @@
 
 <img src="./dochub-demo.png"/>
 
-#### 1. Write and push content to a <u>Source Repository</u>
+#### 1. Get content from a <u>source repository,</u>
 
 > Ex: [PagoDingo/notes-pega](https://github.com/pagodingo/notes-pega)
 
-#### 2. Fork <u>this</u> repository, and include your archive's source and desired homepage
+#### 2. Fork <u>this</u> repository, and include your source, as well as desired homepage.
 
 ```js
 # environment
