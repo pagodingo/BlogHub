@@ -2,7 +2,7 @@
 
 <img src="./dochub-demo.png"/>
 
-#### 1. Get content from a <u>source repository,</u>
+#### 1. Get content from a <u>source repository.</u>
 
 > Ex: [PagoDingo/notes-pega](https://github.com/pagodingo/notes-pega)
 
