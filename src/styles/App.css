@@ -10,7 +10,7 @@ body, html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@media (min-width: 768px){
+@media (min-width: 200px){
   #left {
     position: absolute;
     top: 0px;
@@ -29,6 +29,7 @@ body, html {
     width: 75%;
   }
 }
+
 
 #link{
   padding: 0px;
@@ -50,7 +51,10 @@ body, html {
   border-right: 1px solid #ddd;
 }
 
-#right {
-  height:100%;
-  /*background-color: #4FC1E9;*/
+#page-title {
+  text-align: center;
+  top: 0; position: sticky;
+  background: #ffffff;
+  margin-top: 0;
+  margin-left: 50px;
 }
