@@ -1,6 +1,6 @@
 ### Web Archives powered by GitHub.
-[Live Demo](https://master--sparkly-mandazi-9d0d40.netlify.app/#)
-<img src="./dochub-demo.png"/>
+<a href="https://master--sparkly-mandazi-9d0d40.netlify.app/">Live Demo</a>
+<a href="https://master--sparkly-mandazi-9d0d40.netlify.app/"><img src="./dochub-demo.png"/></a>
 
 #### 1. Get content from a <u>source repository.</u>
 
