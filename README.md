@@ -17,4 +17,4 @@ REACT_APP_GIT_ARCHIVE_INDEX={index}
 Ex: PagoDingo/notes-pega, pega-2-1.md
 ```
 
-#### 3. Write, push, publish.
+#### 3. Publish.
