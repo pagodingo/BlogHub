@@ -18,7 +18,7 @@ Ex: PagoDingo/notes-pega, pega-2-1.md
 ```
 
 #### 3. Publish.
-
-Recommendations
+---
+Host Recommendations
 - [Netlify](https://www.netlify.com/)
 - [GitHub Pages](https://pages.github.com/)
