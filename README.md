@@ -6,7 +6,7 @@
 
 > Ex: [PagoDingo/notes-pega](https://github.com/pagodingo/notes-pega)
 
-#### 2. Fork <u>this</u> repository, include your source, as well as your desired homepage.
+#### 2. Clone <u>this</u> repository, include your source, as well as your desired homepage.
 
 ```js
 # environment
