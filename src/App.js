@@ -21,7 +21,7 @@ class App extends React.Component{
     axios.get(`https://api.github.com/repos/${archive}/contents/`)
     .then(response => {
       let contents = []
-      response.data.map(item => {
+      response.data.forEach(item => {
         if (item.name.endsWith('.md')){
           contents.push(item.name)
         }
@@ -86,7 +86,7 @@ class App extends React.Component{
           {contents.map((c) => {
             return (
               <div id="contents">
-                <a href={'#'} id="link" onClick={e => this.handleChange(e)}>
+                <a href={'/#'} id="link" onClick={e => this.handleChange(e)}>
                   {c}
                 </a>
               </div>
