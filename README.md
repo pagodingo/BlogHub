@@ -37,12 +37,12 @@ If you create a folder `/images` in your source repository's root, you can embed
 <img src="./images/my-image.png"><img/>
 ```
 
-But, the way this works, takes not being able to source external images.
+But, the way this works, takes not being able to support external images.
 
-It's a really easy problem to fix, it's just a by-product of some poor design.
+It's a really easy problem to fix, it's only a design flaw.
 
-In the way that HTML is rendered from Markdown, it's a bit complicated to implement a solution properly, and in a way that makes sense. It's the first bug I want to fix, and once I've figured out a clean way of doing it, it'll be taken care of.
+Due to how the HTML is produced from Markdown, it's sort of complicated to fix it in a way that makes sense. It's fixable, but to fix it the only way I know how would just be a bandaid.
 
 **2. Folders not yet supported.**
 
-Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This also doesn't feel like a hard problem to fix, but, I know it will take a lot of careful consideration to get right, and there's no rush to do it just yet - a way to organize source files could be provided in a number of different ways.
+Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This doesn't feel like a hard problem to fix either, but, I know it will take a lot of careful thought to get it right, and there's no rush to do it just yet - if it was really necessary, there are number of ways to provide the ability of grouping files.
