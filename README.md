@@ -45,4 +45,4 @@ In the way that HTML is rendered from Markdown, it's a bit complicated to implem
 
 2. No support for nested folders.
 
-Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This also doesn't feel like a hard problem to fix, but, I know it will take a lot of careful consideration to get it right, and there's no rush to do it just yet - a way to organize source files could be provided in a number of different ways.
+Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This also doesn't feel like a hard problem to fix, but, I know it will take a lot of careful consideration to get right, and there's no rush to do it just yet - a way to organize source files could be provided in a number of different ways.
