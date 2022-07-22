@@ -1,5 +1,5 @@
 const pkImages = {
-    sourceEmbeddedImages: function(source){
+    loadEmbeddedImages: function(source){
         let images = document.getElementsByTagName("img");
         let array = [].slice.call(images);
 
