@@ -2,6 +2,8 @@ import './styles/App.css';
 import './styles/markdown-styling.css'
 import React from 'react';
 import axios from 'axios';
+import pkImages from './pocket-knives/pkImages';
+import pkMarkdown from './pocket-knives/pkMarkdown';
 
 const archive = process.env.REACT_APP_GIT_USER_REPO
 const index = process.env.REACT_APP_GIT_ARCHIVE_INDEX
@@ -20,85 +22,51 @@ class App extends React.Component{
   componentDidMount(){
     axios.get(`https://api.github.com/repos/${archive}/contents/`)
     .then(response => {
-      let contents = []
-      response.data.forEach(item => {
-        if (item.name.endsWith('.md')){
-          contents.push(item.name)
-        }
-      })
-      this.setState ({ contents: contents })
+      this.setState ({ contents: pkMarkdown.sourceMarkdownFiles(response.data) })
     })
       const request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${index}`)
       request.then((response) => {
-        let markdown = response.data
-        let html = md.render(markdown)
-        document.getElementById("main").innerHTML = html
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, "")
-        })
-
-      let images = document.getElementsByTagName("img");
-      let array = [].slice.call(images);
-
-      array.forEach((image) => {
-        let slug = image.src.split('/').filter(e => e !== '')
-        let png = slug[slug.length - 1]
-            image.src = `https://raw.githubusercontent.com/${archive}/master/images${png}`
-      });
-        
+        let html = md.render(response.data)
+        document.getElementById("main").innerHTML = pkMarkdown.cleanBeforeRender(html)
+        pkImages.sourceEmbeddedImages(archive)   
+      })
   }
 
   handleChange(e){
     const nextPage = e.target.innerHTML
     const request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${nextPage}`)
     request.then((response) => {
-      let markdown = response.data
-      let html = md.render(markdown);
-
+      let html = md.render(response.data);
       document.getElementById("right").scrollTop = 0
-      document.getElementById("main").innerHTML = html
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, "")
-
-      // Supporting Embedded Images
-      let images = document.getElementsByTagName("img");
-      let array = [].slice.call(images);
-
-      array.forEach((image) => {
-        let slug = image.src.split('/').filter(e => e !== '')
-        let png = slug[slug.length - 1]
-            image.src = `https://raw.githubusercontent.com/${archive}/master/images/${png}`
-      });
-
+      document.getElementById("main").innerHTML = pkMarkdown.cleanBeforeRender(html)
+      pkImages.sourceEmbeddedImages(archive)
     })
+
     this.setState({page: nextPage})
   }
 
   render(){
-    let contents = this.state.contents
     return (
       <>
         <div id="left">
           <p style={{textAlign: 'left'}}>Contents</p>
           
-          {contents.map((c) => {
+          {this.state.contents.map((content) => {
             return (
               <div id="contents">
                 <a href={'/#'} id="link" onClick={e => this.handleChange(e)}>
-                  {c}
+                  {content}
                 </a>
               </div>
             )})}
         </div>
 
         <div id="right">
-        <p id="page-title">{this.state.page}</p>
+          <p id="page-title">{this.state.page}</p>
           <div id="main"/>
         </div>
       </>
     )
   }
 }
-export default App;
+export default App
