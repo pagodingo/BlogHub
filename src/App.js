@@ -48,7 +48,7 @@ class App extends React.Component{
                                                   toolKit.Images.loadEmbeddedImages(archive)
     })
 
-    this.setState({page: nextPage})
+    this.setState({currentPage: nextPage})
   }
 
   render(){
