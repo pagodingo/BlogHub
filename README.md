@@ -17,7 +17,12 @@ REACT_APP_GIT_ARCHIVE_INDEX={index}
 Ex: PagoDingo/notes-pega, pega-2-1.md
 ```
 
-#### 3. Publish this project to any host site of your choosing, and make changes to your content on-the-fly locally, then push them to your archive. Changes will update automatically if you choose to use either of the recommendations listed below:
+#### 3. Publish this project to any host provider of your choosing, and make changes to your content 💻 on-the-fly. 
+
+#### Then, once you're finished, push it up into your digital archive.
+
+
+#### Updates happen immediately if you choose to use either of the recommendations listed below:
 ---
 Host Recommendations
 - <a href="https://netlify.com" target="_blank">Netlify</a>
