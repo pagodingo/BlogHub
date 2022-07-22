@@ -45,4 +45,4 @@ Due to how the HTML is produced from Markdown, it's sort of complicated to fix i
 
 **2. Folders not yet supported.**
 
-Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This doesn't feel like a hard problem to fix either, but, I know it will take a lot of careful thought to get it right, and there's no rush to do it just yet - if it was really necessary, there is a number of ways of providing the ability to group files.
+Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This doesn't feel like a hard problem to fix either, but, I know it will take a lot of careful thought to get it right, and there's no rush to do it just yet - if it was really necessary, there is a number of ways to provide the ability of grouping files.
