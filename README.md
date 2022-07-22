@@ -31,8 +31,18 @@ Being able to access <u>multiple repositories</u> is next on my agenda. But befo
 
 1. Embedded images are supported, external images are not.
 
-It's a really easy problem to fix, it's a by-product of poor design. In the way that HTML is rendered from Markdown, it's a bit complicated to *cleanly* implement this. It's the first bug I want to fix, and once I've figured out a clean way of doing it, it'll be updated.
+If you create a folder `/images` in your source repository's root, you can embed images just as you normally would:
+
+```html
+<img src="./images/my-image.png"><img/>
+```
+
+But, the way this works, takes not being able to source external images.
+
+It's a really easy problem to fix, it's just a by-product of some poor design.
+
+In the way that HTML is rendered from Markdown, it's a bit complicated to implement a solution properly, and in a way that makes sense. It's the first bug I want to fix, and once I've figured out a clean way of doing it, it'll be taken care of.
 
 2. No support for nested folders.
 
-Only files present in the `/root` of your repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This also doesn't feel like a hard problem to fix, but, I know it will take careful consideration to get right, and there's not a reason to rush to do it just yet.
+Only files present in the `/root` of your repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This also doesn't feel like a hard problem to fix, but, I know it will take a lot of careful consideration to get it right, and there's no rush to do it just yet - a way to organize source files could be provided in a number of different ways.
