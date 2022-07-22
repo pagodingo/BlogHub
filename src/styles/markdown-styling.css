@@ -30,9 +30,7 @@ table td {
     border-bottom: 1px solid #ddd;
     padding: .2em 1em;
 }
-input[type=text],
-input[type=password],
-input[type=image],
+input,
 textarea {
     font: 99% helvetica, arial, freesans, sans-serif;
 }
