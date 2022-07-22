@@ -39,7 +39,7 @@ If you create a folder `/images` in your source repository's root, you can embed
 
 But, the way this works, takes not being able to support external images.
 
-It's a really easy problem to fix, it's only a design flaw.
+It's a really easy problem to fix. It's only a design flaw.
 
 Due to how the HTML is produced from Markdown, it's sort of complicated to fix it in a way that makes sense. It's fixable, but to fix it the only way I know how would just be a bandaid.
 
