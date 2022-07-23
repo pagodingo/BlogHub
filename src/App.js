@@ -52,7 +52,13 @@ class App extends React.Component{
   }
 
   render(){
-    return <Template currentPage={this.state.currentPage} contents={this.state.contents} nextPage={this.nextPage}/>
+    return (
+      <Template 
+      currentPage={this.state.currentPage} 
+      contents={this.state.contents} 
+      nextPage={this.nextPage}
+      />
+    )
   }
 }
 export default App
