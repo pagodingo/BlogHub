@@ -1,4 +1,4 @@
-import './styles/App.css';
+import './styles/Template.css';
 import './styles/markdown-styling.css'
 import React from 'react';
 import axios from 'axios';
@@ -23,7 +23,7 @@ class App extends React.Component{
   componentDidMount(){
     axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => { // 1.
       this.setState ({
-         contents: toolKit.Markdown.filterMarkdownFiles(response.data) 
+         contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
       })
     })
     axios.get(`https://raw.githubusercontent.com/${archive}/master/${index}`)// 2.

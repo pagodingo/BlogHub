@@ -5,7 +5,7 @@ const pkMarkdown = {
        .replace(/&gt;/g, ">")
        .replace(/&quot;/g, "")
     },
-    filterMarkdownFiles: function(source){
+    returnMarkdownFiles: function(source){
         let files = []
         source.forEach(item => {
           if (item.name.endsWith('.md')){
