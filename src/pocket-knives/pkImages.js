@@ -5,6 +5,7 @@ const pkImages = {
 
         array.forEach((image) => {
             let slug = image.src.split('/').filter(e => e !== '')
+            console.log(slug)
             let png = slug[slug.length - 1]
                 image.src = `https://raw.githubusercontent.com/${source}/master/images/${png}`
         });

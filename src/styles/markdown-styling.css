@@ -134,9 +134,7 @@ h3 {
 hr {
     border: 1px solid #ddd;
 }
-ul {
-    margin: 1em 0 1em 2em;
-}
+
 ol {
     margin: 1em 0 1em 2em;
 }
@@ -165,6 +163,9 @@ dt {
 dd {
     margin-left: 2em;
     margin-bottom: 1em;
+}
+strong, u {
+    margin:0;
 }
 @media screen and (min-width: 768px) {
     body {
