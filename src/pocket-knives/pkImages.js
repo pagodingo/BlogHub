@@ -8,6 +8,10 @@ function loadEmbeddedImages(source){
 
     array.forEach((image) => {
         let slug = image.src.split('/').filter(e => e !== '')
+        // Ignoring External Images
+        if (slug.length > 4 || slug[1].endsWith(".com")){
+            return
+        }
         //console.log(slug)
         let png = slug[slug.length - 1]
             image.src = `https://raw.githubusercontent.com/${source}/master/images/${png}`
