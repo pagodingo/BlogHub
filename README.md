@@ -29,7 +29,7 @@ Host Recommendations
 ---
 Being able to access <u>multiple repositories</u> is next on the agenda. But before that can happen, there are a few **kinks that need to be worked out**:
 
-**1. Embedded images are supported, external images are not.** :heavy_check_mark: [July 27, 2022]
+**1. Embedded images are supported, external images are not.** :heavy_check_mark: [Fixed: July 27, 2022]
 
 
 
