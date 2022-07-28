@@ -7,7 +7,7 @@ function loadEmbeddedImages(source){
     let array = [].slice.call(images);
 
     array.forEach((image) => {
-        let slug = image.src.split('/').filter(e => e !== '')
+        let slug = image.src.split('/').filter(e => e !== '') // filter trailing blanks
         // Ignoring External Images
         if (slug.length > 4 || slug[1].endsWith(".com")){
             return
