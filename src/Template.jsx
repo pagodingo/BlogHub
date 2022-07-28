@@ -15,7 +15,7 @@ const Template = ({ currentPage, contents, nextPage}) => {
       </div>
 
       <div id="right">
-        <p id="page-title">{currentPage}</p>
+        <p id="page-title" style={{textDecoration: "underline"}}>{currentPage}</p>
         <div id="main" />
       </div>
     </>
