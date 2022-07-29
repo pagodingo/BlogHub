@@ -13,7 +13,8 @@ class App extends React.Component{
     super()
     this.state = {
       contents: [],
-      currentPage: index
+      currentPage: index,
+      searchField: ""
     }
   }
 
@@ -36,6 +37,10 @@ class App extends React.Component{
 
 // Rendering New Pages
 
+  searchChange = (event) => {
+    this.setState({ searchField: event.target.value })
+  }
+
   nextPage =  (e) => {
     let nextPage = e.target.innerHTML
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${nextPage}`)
@@ -52,11 +57,25 @@ class App extends React.Component{
   }
 
   render(){
+    let contents = this.state.contents
+    let searchField = this.state.searchField
+    let searchChange = this.searchChange
+    console.log(contents)
+        const filteredContents = contents.filter(
+            content => {
+            return (
+                content
+                .toLowerCase()
+                .includes
+                (searchField.toLowerCase())
+            )
+        })
     return (
       <Template 
       currentPage={this.state.currentPage} 
-      contents={this.state.contents} 
+      contents={filteredContents} 
       nextPage={this.nextPage}
+      searchChange={searchChange}
       />
     )
   }

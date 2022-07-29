@@ -58,3 +58,12 @@ body, html {
   margin-top: 0;
   margin-left: 50px;
 }
+
+input {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  border-bottom: 1px solid #ddd;
+  color: red;
+}

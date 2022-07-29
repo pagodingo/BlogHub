@@ -1,8 +1,9 @@
-const Template = ({ currentPage, contents, nextPage}) => {
+const Template = ({ currentPage, contents, nextPage, searchChange}) => {
   return (
     <>
       <div id="left">
-        <p style={{ textAlign: "left" }}>Contents</p>
+        
+        <p style={{ textAlign: "left" }}>Contents <input type="text" placeholder="filter" onChange={searchChange}></input></p>
         {contents.map((content, i) => {
           return (
             <div id="contents" key={i}>
