@@ -60,7 +60,6 @@ class App extends React.Component{
     let contents = this.state.contents
     let searchField = this.state.searchField
     let searchChange = this.searchChange
-    console.log(contents)
         const filteredContents = contents.filter(
             content => {
             return (
