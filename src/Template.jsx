@@ -1,6 +1,6 @@
 const Template = ({ currentPage, contents, nextPage, searchChange}) => {
   return (
-    <>
+    <div id="fake-main">
       <div id="left">
         
         <p style={{ textAlign: "left"}}>Contents</p>
@@ -20,7 +20,7 @@ const Template = ({ currentPage, contents, nextPage, searchChange}) => {
         <p id="page-title" style={{textDecoration: "underline", borderBottom: "1px solid #ddd"}}>{currentPage}</p>
         <div id="main" />
       </div>
-    </>
+      </div>
   );
 };
 

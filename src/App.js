@@ -59,7 +59,6 @@ class App extends React.Component{
   render(){
     let contents = this.state.contents
     let searchField = this.state.searchField
-    let searchChange = this.searchChange
         const filteredContents = contents.filter(
             content => {
             return (
@@ -70,12 +69,14 @@ class App extends React.Component{
             )
         })
     return (
+      <>
       <Template 
       currentPage={this.state.currentPage} 
       contents={filteredContents} 
       nextPage={this.nextPage}
-      searchChange={searchChange}
+      searchChange={this.searchChange}
       />
+      </>
     )
   }
 }
