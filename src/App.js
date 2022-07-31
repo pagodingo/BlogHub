@@ -5,7 +5,7 @@ import axios from 'axios';
 import toolKit from './pocket-knives/export'
 import Template from './Template'
 const archive = process.env.REACT_APP_GIT_USER_REPO
-const index = process.env.REACT_APP_GIT_ARCHIVE_INDEX
+const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
 const md = require('markdown-it')();
 
 class App extends React.Component{
@@ -13,13 +13,13 @@ class App extends React.Component{
     super()
     this.state = {
       contents: [],
-      currentPage: index,
+      currentPage: titlePage,
       searchField: ""
     }
   }
 
  // 1. Load Table of Contents
-  // 2. Load Raw Content
+  // 2. Load Title Page
 
   componentDidMount(){
     axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => { // 1.
@@ -27,7 +27,7 @@ class App extends React.Component{
          contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
       })
     })
-    axios.get(`https://raw.githubusercontent.com/${archive}/master/${index}`)// 2.
+    axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`)// 2.
          .then((response) => {
          let html = md.render(response.data)
          document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)

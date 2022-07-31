@@ -6,13 +6,13 @@
 
 > Ex: [PagoDingo/notes-pega](https://github.com/pagodingo/notes-pega)
 
-#### 2. Clone <u>this</u> repository, reference your source, and select your desired homepage.
+#### 2. Clone <u>this</u> repository, reference your source, and select your desired title page.
 
 ```js
 # environment
 
 REACT_APP_GIT_USER_REPO={User}/{Repo}
-REACT_APP_GIT_ARCHIVE_INDEX={index}
+REACT_APP_GIT_ARCHIVE_TITLEPAGE={titlePage}
 
 Ex: PagoDingo/notes-pega, pega-2-1.md
 ```
