@@ -4,7 +4,7 @@ const Template = ({ currentPage, contents, nextPage, searchChange}) => {
       <div id="left">
         
         <p style={{ textAlign: "left"}}>Contents</p>
-        <input type="text" placeholder="search..." onChange={searchChange} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
+        <input type="text" placeholder="search" onChange={searchChange} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
         {contents.map((content, i) => {
           return (
             <div id="contents" key={i}>

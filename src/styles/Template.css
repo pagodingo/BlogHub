@@ -20,6 +20,8 @@ body, html {
     overflow-y: scroll; 
     overflow-x: hidden;
   }
+
+
   
   #right {
     position: absolute;
@@ -29,6 +31,8 @@ body, html {
     overflow-y: scroll;
     width: 75%;
   }
+
+
 }
 
 
