@@ -1,10 +1,10 @@
 const Template = ({ currentPage, contents, nextPage, searchChange}) => {
   return (
-    <div id="fake-main">
+    <>
       <div id="left">
         
         <p style={{ textAlign: "left"}}>Contents</p>
-        <input type="text" placeholder="..." onChange={searchChange} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
+        <input type="text" placeholder="search..." onChange={searchChange} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
         {contents.map((content, i) => {
           return (
             <div id="contents" key={i}>
@@ -20,7 +20,7 @@ const Template = ({ currentPage, contents, nextPage, searchChange}) => {
         <p id="page-title" style={{textDecoration: "underline", borderBottom: "1px solid #ddd"}}>{currentPage}</p>
         <div id="main" />
       </div>
-      </div>
+      </>
   );
 };
 
