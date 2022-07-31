@@ -21,6 +21,13 @@ body, html {
     overflow-x: hidden;
   }
 
+  .ch:hover {
+    background: blue !important;
+  }
+
+  .ch::before {
+    position: fixed;
+  }
 
   
   #right {

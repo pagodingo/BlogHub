@@ -17,6 +17,14 @@ const Template = ({ currentPage, contents, nextPage, searchChange}) => {
       </div>
 
       <div id="right">
+        <div className="ch" style={{
+          background: '#ddd',
+            position: 'fixed',
+             top: '15px',
+              marginLeft: '50px',
+              height: '20px',
+              transform: 'skewY(-40deg)',
+              }}></div>
         <p id="page-title" style={{textDecoration: "underline", borderBottom: "1px solid #ddd"}}>{currentPage}</p>
         <div id="main" />
       </div>

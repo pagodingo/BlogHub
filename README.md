@@ -31,8 +31,6 @@ Being able to access <u>multiple repositories</u> is next on the agenda. But bef
 
 **1. Embedded images are supported, external images are not.** :heavy_check_mark: [Fixed: July 27, 2022]
 
-
-
 If you create a folder `/images` in your source repository's root, you can embed images just as you normally would:
 
 ```html
