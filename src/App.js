@@ -67,8 +67,8 @@ class App extends React.Component{
         if (content.toLowerCase().includes(keywords[i])){
           return true
         }
-        return false
       }
+      return
     })
 
     return (
