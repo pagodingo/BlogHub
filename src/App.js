@@ -57,6 +57,9 @@ class App extends React.Component{
   }
 
   render(){
+   /* axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => { 
+      console.log(response.data[11])
+      })*/
     let contents = this.state.contents
     let searchField = this.state.searchField
         const filteredContents = contents.filter(
