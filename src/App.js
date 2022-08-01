@@ -68,7 +68,6 @@ class App extends React.Component{
           return true
         }
       }
-      console.log(keywords)
     })
 
     return (
