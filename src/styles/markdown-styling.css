@@ -23,7 +23,7 @@ table {
     padding: 0
 }
 
-table:nth-of-type(odd) {
+table:nth-of-type(even) {
     background: #dedede;
 }
 table th {
