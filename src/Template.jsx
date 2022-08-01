@@ -17,7 +17,7 @@ const Template = ({ currentPage, contents, nextPage, searchChange}) => {
       </div>
 
       <div id="right">
-        <div className="ch" style={{
+        <div className="chevron" style={{
           background: '#ddd',
             position: 'fixed',
              top: '15px',
