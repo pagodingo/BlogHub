@@ -31,7 +31,7 @@ const Template = ({ currentPage, contents, nextPage, searchChange}) => {
               transform: 'skewY(-40deg)',
               }}></div>
         <p id="page-title" style={{textDecoration: "underline", borderBottom: "1px solid #ddd"}}>{currentPage}</p>
-        <p style={{textAlign: 'right', position: 'fixed', right: '15px', top: '0', margin: '10px', cursor: 'pointer'}} onClick={editOnGithubHandler}><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="gitty-cat" style={{width: '23px', height: 'auto', position: 'fixed', right: '120px', top: 1}} />Edit on GitHub</p>
+        <p style={{ background: "#ffffff", textAlign: 'right', position: 'fixed', right: '15px', top: '0', margin: '10px', cursor: 'pointer'}} onClick={editOnGithubHandler}><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="gitty-cat" style={{width: '23px', height: 'auto', position: 'fixed', right: '120px', top: 1}} />Edit on GitHub</p>
         <div id="main" />
       </div>
       </>
