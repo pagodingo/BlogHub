@@ -68,7 +68,7 @@ class App extends React.Component{
           return true
         }
       }
-      return
+      return false
     })
 
     return (
