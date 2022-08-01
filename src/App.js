@@ -61,16 +61,16 @@ class App extends React.Component{
       console.log(response.data[11])
       })*/
     let contents = this.state.contents
-    let searchField = this.state.searchField
-        const filteredContents = contents.filter(
-            content => {
-            return (
-                content
-                .toLowerCase()
-                .includes
-                (searchField.toLowerCase())
-            )
-        })
+    let keywords = this.state.searchField.split(" ")
+    let filteredContents = contents.filter(content => {
+      for (var i = 0; i < keywords.length; ++i){
+        if (content.toLowerCase().includes(keywords[i])){
+          return true
+        }
+      }
+      console.log(keywords)
+    })
+
     return (
       <>
       <Template 
