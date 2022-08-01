@@ -18,17 +18,18 @@ p {
 }
 table {
     font-size: inherit;
+    border: 1px solid #aaa;
     font: 100%;
-    margin: 1em;
+    padding: 0
+}
+
+table:nth-of-type(odd) {
+    background: #dedede;
 }
 table th {
     border-bottom: 1px solid #bbb;
-    padding: .2em 1em;
 }
-table td {
-    border-bottom: 1px solid #ddd;
-    padding: .2em 1em;
-}
+
 input,
 textarea {
     font: 100% helvetica
