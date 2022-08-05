@@ -15,7 +15,8 @@ class App extends React.Component{
       contents: [],
       currentPage: titlePage,
       searchField: "",
-      directory: ["class-notes"]
+      path: "",
+      directory: ["/root"]
     }
   }
 
@@ -23,24 +24,18 @@ class App extends React.Component{
   // 2. Load Title Page
 
   componentDidMount(){
-    axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => { // 1.
+    axios.get(`https://api.github.com/repos/${archive}/contents/${this.state.path}`).then(response => { // 1.
+    console.log('here')
       this.setState ({
-         contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
+          contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
       })
-      axios.get(`https://api.github.com/repos/${archive}/contents/${this.state.directory.join("")}`).then(response => {
-        console.log(response)
-      })
-      this.setState ({
-         contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
-      })
-
-      
     })
-    axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`)// 2.
-         .then((response) => {
-         let html = md.render(response.data)
-         document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
-                                                     toolKit.Images.loadEmbeddedImages(archive)   
+
+
+    axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`).then((response) => {
+      let html = md.render(response.data)
+      document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
+                                                  toolKit.Images.loadEmbeddedImages(archive)   
     })
   }
 
@@ -51,15 +46,15 @@ class App extends React.Component{
   }
 
   nextPage =  (e) => {
-    let nextPage = e.target.innerHTML
-
-    if (nextPage.includes("📚")) {
-      console.log("b1t-m0ji")
-      let nextDir = nextPage
-      this.changeDirectory(nextDir)
+    if (e.target.innerHTML.includes("📚")) 
+    {
+      this.nextDir(e.target.innerHTML.replace("📚","").replace(" ",""))
+      console.log("c")
+      return
     }
 
-    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${nextPage}`)
+    let nextPage = e.target.innerHTML
+    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${this.state.path}${nextPage}`)
     request.then((response) => {
       let html = md.render(response.data);
       // Set window @ top of Next Page
@@ -68,24 +63,29 @@ class App extends React.Component{
       document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                   toolKit.Images.loadEmbeddedImages(archive)
     })
-
     this.setState({currentPage: nextPage})
   }
 
+  nextDir = (nextDir) => {
 
-
-  changeDirectory = (nextDirectory) => {
-    axios.get(`https://api.github.com/repos/${archive}/contents/${this.state.directory.join("")}`).then(response => { // 1.
-      this.setState ({
-          contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
+    if (this.state.path === ""){
+      console.log(nextDir)
+      axios.get(`https://api.github.com/repos/${archive}/contents/${nextDir}`).then(response => {
+        this.setState ({
+            contents: toolKit.Markdown.returnMarkdownFiles(response.data),
+            path: this.state.path + nextDir + "/",
+        })
+        this.state.directory.push(nextDir)
       })
-    })
+      console.log(this.state.path)
+    }
+
   }
 
+
+
+
   render(){
-   /* axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => { 
-      console.log(response.data[11])
-      })*/
     let contents = this.state.contents
     let keywords = this.state.searchField.split(" ")
     let filteredContents = contents.filter(content => {
@@ -101,6 +101,7 @@ class App extends React.Component{
       <>
       <Template 
       currentPage={this.state.currentPage} 
+      directory={this.state.directory}
       contents={filteredContents} 
       nextPage={this.nextPage}
       searchChange={this.searchChange}
