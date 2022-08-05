@@ -14,7 +14,8 @@ class App extends React.Component{
     this.state = {
       contents: [],
       currentPage: titlePage,
-      searchField: ""
+      searchField: "",
+      directory: ["class-notes"]
     }
   }
 
@@ -26,6 +27,14 @@ class App extends React.Component{
       this.setState ({
          contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
       })
+      axios.get(`https://api.github.com/repos/${archive}/contents/${this.state.directory.join("")}`).then(response => {
+        console.log(response)
+      })
+      this.setState ({
+         contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
+      })
+
+      
     })
     axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`)// 2.
          .then((response) => {
@@ -43,6 +52,13 @@ class App extends React.Component{
 
   nextPage =  (e) => {
     let nextPage = e.target.innerHTML
+
+    if (nextPage.includes("📚")) {
+      console.log("b1t-m0ji")
+      let nextDir = nextPage
+      this.changeDirectory(nextDir)
+    }
+
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${nextPage}`)
     request.then((response) => {
       let html = md.render(response.data);
@@ -54,6 +70,16 @@ class App extends React.Component{
     })
 
     this.setState({currentPage: nextPage})
+  }
+
+
+
+  changeDirectory = (nextDirectory) => {
+    axios.get(`https://api.github.com/repos/${archive}/contents/${this.state.directory.join("")}`).then(response => { // 1.
+      this.setState ({
+          contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
+      })
+    })
   }
 
   render(){
