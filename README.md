@@ -1,4 +1,4 @@
-### Web Archives powered by GitHub.
+### Blogs powered by GitHub.
 <a href="https://master--sparkly-mandazi-9d0d40.netlify.app/" target="_blank">Live Demo</a>
 <a href="https://master--sparkly-mandazi-9d0d40.netlify.app/"><img src="./preview.png" target="_blank"/></a>
 
