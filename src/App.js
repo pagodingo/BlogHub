@@ -15,8 +15,8 @@ class App extends React.Component{
       contents: [],
       currentPage: titlePage,
       searchField: "",
-      path: "",
-      directory: ["root"]
+      directory: ["root"],
+      path: ""
     }
   }
 
@@ -24,30 +24,27 @@ class App extends React.Component{
   // 2. Load Title Page
 
   componentDidMount(){
-    axios.get(`https://api.github.com/repos/${archive}/contents/${this.state.path}`).then(response => { // 1.
+    axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => { // 1.
       this.setState ({
           contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
       })
-    })
+    }) // sets contents
 
 
     axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`).then((response) => {
       let html = md.render(response.data)
       document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                   toolKit.Images.loadEmbeddedImages(archive)   
-    })
+    }) // sets document.getElementById("main")
   }
-
-// Rendering New Pages
-
-  searchChange = (event) => {
-    this.setState({ searchField: event.target.value })
-  }
-
-  nextPage =  (e) => {
+  nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) 
     {
-      this.nextDir(e.target.innerHTML.replace("📚","").replace(" ",""), false)
+      this.nextDir(
+          e.target.innerHTML
+          .replace("📚","")
+          .replace(" ",""), false
+      ) // fine, but no booleans.
       return
     }
 
@@ -60,56 +57,39 @@ class App extends React.Component{
       //
       document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                   toolKit.Images.loadEmbeddedImages(archive)
-    })
+    }) // this does another set document.getElementById("main") --
+      // because this logic doesn't ever call this.state, I think it's safe to pull this -- 
+      // minimized chunk out and save it as a pK.
     this.setState({currentPage: nextPage})
   }
 
   nextDir = (nextDir, directoryJump) => {
-
-    if (this.state.path === ""){
-      axios.get(`https://api.github.com/repos/${archive}/contents/${nextDir}`).then(response => {
-        this.setState ({
-            contents: toolKit.Markdown.returnMarkdownFiles(response.data),
-            path: this.state.path + nextDir + "/",
-        })   
-        this.state.directory.push(nextDir)
+    if (directoryJump){
+      this.setState({
+        directory: ["root"],
+        path: ""
       })
-    }
+    } // bad logic! : needs remove!
     axios.get(`https://api.github.com/repos/${archive}/contents/${nextDir}`).then(response => {
         this.setState ({
             contents: toolKit.Markdown.returnMarkdownFiles(response.data),
-            path: "",
-        })   
-        this.state.directory.push(nextDir)
-      })
-    if (directoryJump){
-      this.setState({
-        path: nextDir,
-        directory: ["root"]
-      })
-    }
+            path: this.state.path + nextDir + "/"
+        })
+        this.state.directory.push(nextDir) // bad logic? 
+        console.log(this.state)
+    })
   }
 
   changeDirectory = (e) => {
     if (e.target.innerHTML === "/root"){
       this.nextDir("",true)
-      console.log(e.target.innerHTML)
       return
-    }
-    let target = e.target.innerHTML.substring(1)
-    let currDir = this.state.directory; currDir[0] = "/"
-    let newPath = ""
-    let i = 0
-    while (currDir[i] !== target){
-      newPath += currDir[i] + "/" + currDir[i + 1]
-      ++i
-      console.log(i)
-    }
-    console.log(newPath)
+    } // bad logic! : needs remove!
   }
 
-
-
+  searchChange = (event) => {
+    this.setState({ searchField: event.target.value})
+  }
 
   render(){
     let contents = this.state.contents
