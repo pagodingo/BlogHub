@@ -31,4 +31,4 @@ keep only directory in state. Let "path" be something that emerges out of whatev
 
 const someFunction(){
     let path=  this.state.directory
-}
+}.
