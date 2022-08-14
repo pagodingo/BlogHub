@@ -47,7 +47,22 @@ class App extends React.Component{
       ) // fine, but no booleans.
       return
     }
-
+/* 
+if (this.state.directory.includes("class-notes")){
+      let nextPage = e.target.innerHTML
+      let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${this.state.path}${nextPage}`)
+      request.then((response) => {
+      let html = md.render(response.data);
+      // Set window @ top of Next Page
+      document.getElementById("right").scrollTop = 0
+      //
+      document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
+                                                  toolKit.Images.loadEmbeddedImages(archive)
+      })
+      this.setState({currentPage: nextPage})
+      return;
+    }
+*/
     let nextPage = e.target.innerHTML
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${this.state.path}${nextPage}`)
     request.then((response) => {
