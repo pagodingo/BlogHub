@@ -80,7 +80,7 @@ abbr {
 }
 a {
     text-decoration: none;
-    color: rgb(77, 77, 77);
+    color: rgb(56, 140, 200);
 }
 a:hover {
     text-decoration: underline;
@@ -88,7 +88,7 @@ a:hover {
 a code,
 a:link code,
 a:visited code {
-    color: #4183c4;
+    color: #0863be;
 }
 h2,
 h3 {
