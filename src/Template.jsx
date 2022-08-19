@@ -10,7 +10,7 @@ const Template = ({ currentPage, contents, nextPage, searchChange, directory, ch
         
         <p style={{ textAlign: "left"}}>Contents</p>
         <input type="text" placeholder="search" onChange={searchChange} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
-        {directory.map((dir, i) => {
+        {directory.filter(dir => dir != "").map((dir, i) => {
           return (
             <a href={"/#"} id="link" key={i} onClick={(e)=> changeDirectory(e)}>
               {"/" + dir}
