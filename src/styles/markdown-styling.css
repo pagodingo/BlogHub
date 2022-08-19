@@ -80,7 +80,7 @@ abbr {
 }
 a {
     text-decoration: none;
-    color: rgb(56, 140, 200);
+    color: #202355;
 }
 a:hover {
     text-decoration: underline;
