@@ -17,7 +17,7 @@ REACT_APP_GIT_ARCHIVE_TITLEPAGE={titlePage}
 Ex: PagoDingo/notes-pega, pega-2-1.md
 ```
 
-#### 3. Publish this project to any host provider of your choosing, and make changes to your source content 💻 on-the-fly.
+#### 3. Publish this project to any host provider of your choosing, and make changes to your content 💻 on-the-fly.
 
 #### Then, once you're finished, push new changes to your source repository.
 
