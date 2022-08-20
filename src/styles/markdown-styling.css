@@ -85,6 +85,10 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+table a {
+    color: rgb(0, 106, 255);
+}
 a code,
 a:link code,
 a:visited code {
