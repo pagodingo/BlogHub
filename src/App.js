@@ -6,9 +6,19 @@ import toolKit from './pocket-knives/export'
 import Template from './Template'
 const archive = process.env.REACT_APP_GIT_USER_REPO
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
-const md = require('markdown-it')();
 
-class App extends React.Component{
+const md = require('markdown-it')();
+const junk = [" ","📚","/","root"]
+
+class App extends React.Component{/*
+--------------------------
+
+
+    Model
+
+
+--------------------------
+*/
   constructor(){
     super()
     this.state = {
@@ -16,7 +26,6 @@ class App extends React.Component{
       currentPage: titlePage,
       searchField: "",
       directory: ["root"],
-      path: ""
     }
   }
 
@@ -24,87 +33,106 @@ class App extends React.Component{
   // 2. Load Title Page
 
   componentDidMount(){
-    axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => { // 1.
+    axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => {
+
       this.setState ({
           contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
       })
-    }) // sets contents
+    }) // 1.
 
 
     axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`).then((response) => {
-      let html = md.render(response.data)
+      let 
+      html = md.render(response.data)
       document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                   toolKit.Images.loadEmbeddedImages(archive)   
-    }) // sets document.getElementById("main")
+    }) // 2.
   }
+
+
+
+
+  /*-------------------------
+
+
+    Controller
+
+
+  ---------------------------
+  */
+  
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) 
     {
-      this.nextDir(
-          e.target.innerHTML
-          .replace("📚","")
-          .replace(" ",""), false
-      ) // fine, but no booleans.
+      this.nextDirectory(e)
       return
     }
-/* 
-if (this.state.directory.includes("class-notes")){
-      let nextPage = e.target.innerHTML
-      let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${this.state.path}${nextPage}`)
-      request.then((response) => {
-      let html = md.render(response.data);
-      // Set window @ top of Next Page
-      document.getElementById("right").scrollTop = 0
-      //
-      document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
-                                                  toolKit.Images.loadEmbeddedImages(archive)
-      })
-      this.setState({currentPage: nextPage})
-      return;
-    }
-*/
+
+    let path = this.state.directory.filter(dir => dir !== "root").join("");
+    let string = "/" + path
     let nextPage = e.target.innerHTML
-    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${this.state.path}${nextPage}`)
+    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master${string}/${nextPage}`)
+
     request.then((response) => {
       let html = md.render(response.data);
-      // Set window @ top of Next Page
-      document.getElementById("right").scrollTop = 0
-      //
+      
+      document.getElementById("right").scrollTop = 0 // Set window @ top of next page
+      
       document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                   toolKit.Images.loadEmbeddedImages(archive)
-    }) // this does another set document.getElementById("main") --
-      // because this logic doesn't ever call this.state, I think it's safe to pull this -- 
-      // minimized chunk out and save it as a pK.
-    this.setState({currentPage: nextPage})
+    })
+
+      this.setState({currentPage: nextPage})
   }
 
-  nextDir = (nextDir, directoryJump) => {
-    if (directoryJump){
+  nextDirectory = (e) => {
+    let directory = e.target.innerHTML
+    .replace("📚","")
+    .replace(" ","")
+    .replace("/","")
+    .replace("root","")
+
+    console.log("your directory is " + directory)
+
+    if (directory === ""){
       this.setState({
         directory: ["root"],
         path: ""
       })
     } // bad logic! : needs remove!
-    axios.get(`https://api.github.com/repos/${archive}/contents/${nextDir}`).then(response => {
+    axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`).then(response => {
         this.setState ({
             contents: toolKit.Markdown.returnMarkdownFiles(response.data),
-            path: this.state.path + nextDir + "/"
         })
-        this.state.directory.push(nextDir) // bad logic? 
-        console.log(this.state)
+
+        if (this.state.directory.includes(directory) === false){
+          this.state.directory.push(directory) 
+        }
+        console.log(this.state.directory)
     })
   }
+  
 
   changeDirectory = (e) => {
-    if (e.target.innerHTML === "/root"){
-      this.nextDir("",true)
+    let directory = e.target.innerHTML.replace("/","")
+
+    if (directory === "root"){
+      this.nextDirectory("")
       return
-    } // bad logic! : needs remove!
+    }
   }
 
-  searchChange = (event) => {
-    this.setState({ searchField: event.target.value})
-  }
+  searchChange = (e) => {
+    let input = e.target.value
+    this.setState({ searchField: input})
+  } /* ----------------------
+  
+  
+    View
+  
+  
+  --------------------------
+*/
 
   render(){
     let contents = this.state.contents
@@ -120,14 +148,14 @@ if (this.state.directory.includes("class-notes")){
 
     return (
       <>
-      <Template 
-      currentPage={this.state.currentPage} 
-      directory={this.state.directory}
-      contents={filteredContents} 
-      nextPage={this.nextPage}
-      searchChange={this.searchChange}
-      changeDirectory={this.changeDirectory}
-      />
+        <Template 
+        currentPage={this.state.currentPage} 
+        directory={this.state.directory}
+        contents={filteredContents} 
+        nextPage={this.nextPage}
+        searchChange={this.searchChange}
+        nextDirectory={this.nextDirectory}
+        />
       </>
     )
   }
