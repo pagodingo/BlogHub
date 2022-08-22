@@ -108,7 +108,6 @@ class App extends React.Component{/*
         if (this.state.directory.includes(directory) === false){
           this.state.directory.push(directory) 
         }
-        console.log(this.state.directory)
     })
   }
   
