@@ -42,8 +42,7 @@ class App extends React.Component{/*
 
 
     axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`).then((response) => {
-      let 
-      html = md.render(response.data)
+      let html = md.render(response.data)
       document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                   toolKit.Images.loadEmbeddedImages(archive)   
     }) // 2.
