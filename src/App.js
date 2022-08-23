@@ -29,6 +29,8 @@ class App extends React.Component{/*
     }
   }
 
+  
+
  // 1. Load Table of Contents
   // 2. Load Title Page
 
@@ -69,9 +71,8 @@ class App extends React.Component{/*
     }
 
     let path = this.state.directory.filter(dir => dir !== "root").join("");
-    let string = "/" + path
     let nextPage = e.target.innerHTML
-    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master${string}/${nextPage}`)
+    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}/${nextPage}`)
 
     request.then((response) => {
       let html = md.render(response.data);
@@ -92,8 +93,6 @@ class App extends React.Component{/*
     .replace("/","")
     .replace("root","")
 
-    console.log("your directory is " + directory)
-
     if (directory === ""){
       this.setState({
         directory: ["root"],
@@ -108,6 +107,7 @@ class App extends React.Component{/*
         if (this.state.directory.includes(directory) === false){
           this.state.directory.push(directory) 
         }
+        console.log(this.state.directory)
     })
   }
   

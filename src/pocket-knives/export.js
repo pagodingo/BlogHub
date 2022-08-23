@@ -3,7 +3,7 @@ import Markdown from "./pkMarkdown";
 
 const index = {
     Images: Images,
-    Markdown: Markdown
+    Markdown: Markdown,
 }
 
 export default index
