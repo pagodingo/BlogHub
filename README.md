@@ -21,7 +21,7 @@ Ex: PagoDingo/notes-pega, 'Data-Page.md'
 
 #### Then, once you're finished, push new changes to your source repository.
 
-#### Updates happen immediately if you choose to use either of the recommendations listed below:
+#### Updates happen immediately while using either of the recommendations listed below:
 ---
 Host Recommendations
 - <a href="https://netlify.com" target="_blank">Netlify</a>

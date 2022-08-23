@@ -4,6 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import toolKit from './pocket-knives/export'
 import Template from './Template'
+import { eventWrapper } from '@testing-library/user-event/dist/utils';
 const archive = process.env.REACT_APP_GIT_USER_REPO
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
 
@@ -47,7 +48,6 @@ class App extends React.Component{/*
                                                   toolKit.Images.loadEmbeddedImages(archive)   
     }) // 2.
   }
-
   /*-------------------------
 
 
