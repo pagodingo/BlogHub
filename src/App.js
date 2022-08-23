@@ -29,8 +29,6 @@ class App extends React.Component{/*
     }
   }
 
-  
-
  // 1. Load Table of Contents
   // 2. Load Title Page
 
@@ -50,9 +48,6 @@ class App extends React.Component{/*
                                                   toolKit.Images.loadEmbeddedImages(archive)   
     }) // 2.
   }
-
-
-
 
   /*-------------------------
 
@@ -94,11 +89,12 @@ class App extends React.Component{/*
     .replace("root","")
 
     if (directory === ""){
-      this.setState({
-        directory: ["root"],
-        path: ""
-      })
-    } // bad logic! : needs remove!
+        this.setState({
+          directory: ["root"],
+          path: ""
+        })
+    } // base case
+
     axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`).then(response => {
         this.setState ({
             contents: toolKit.Markdown.returnMarkdownFiles(response.data),
@@ -134,11 +130,10 @@ class App extends React.Component{/*
 */
 
   render(){
-    let contents = this.state.contents
     let keywords = this.state.searchField.split(" ")
-    let filteredContents = contents.filter(content => {
+    let filteredContents = this.state.contents.filter(c => {
       for (var i = 0; i < keywords.length; ++i){
-        if (content.toLowerCase().includes(keywords[i])){
+        if (c.toLowerCase().includes(keywords[i])){
           return true
         }
       }
