@@ -9,7 +9,6 @@ const archive = process.env.REACT_APP_GIT_USER_REPO
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
 
 const md = require('markdown-it')(); // https://github.com/markdown-it/markdown-it
-const junk = [" ","📚","/","root"]
 
 class App extends React.Component{/*
 --------------------------
@@ -87,7 +86,6 @@ class App extends React.Component{/*
     this.getContents(directory);
   }
   
-
   changeDirectory = (e) => {
     let directory = e.target.innerHTML.replace("/","")
 
