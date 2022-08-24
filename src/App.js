@@ -29,11 +29,8 @@ class App extends React.Component{/*
   }
 
   componentDidMount(){
-    axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => {
-      this.setState ({
-          contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
-      })}) 
-    this.getPage("",titlePage)
+    this.getContents("");
+    this.getPage("",titlePage);
   } /*-------------------------
 
 
@@ -47,6 +44,18 @@ class App extends React.Component{/*
           document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                       toolKit.Images.loadEmbeddedImages(archive)
   })}
+
+  getContents = (directory) => {
+    axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`).then(response => {
+        this.setState ({
+            contents: toolKit.Markdown.returnMarkdownFiles(response.data),
+        })
+
+        if (this.state.directory.includes(directory) === false){
+          this.state.directory.push(directory) 
+        }
+    })
+  }
   
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) 
@@ -75,16 +84,8 @@ class App extends React.Component{/*
           path: ""
     })} // base case
 
-    axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`).then(response => {
-        this.setState ({
-            contents: toolKit.Markdown.returnMarkdownFiles(response.data),
-        })
-
-        if (this.state.directory.includes(directory) === false){
-          this.state.directory.push(directory) 
-        }
-        console.log(this.state.directory)
-    })}
+    this.getContents(directory);
+  }
   
 
   changeDirectory = (e) => {
