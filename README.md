@@ -4,7 +4,7 @@
 
 #### 1. Create or determine a <u>source repository.</u>
 
-> Ex: [PagoDingo/notes-pega](https://github.com/pagodingo/notes-pega)
+> Ex: [github.com/pagodingo/notes-pega](https://github.com/pagodingo/notes-pega)
 
 #### 2. Clone <u>this</u> repository, reference your source, and select your desired title page.
 
@@ -14,7 +14,7 @@
 REACT_APP_GIT_USER_REPO={User}/{Repo}
 REACT_APP_GIT_ARCHIVE_TITLEPAGE={titlePage}
 
-Ex: PagoDingo/notes-pega, 'Data-Page.md'
+Ex: (PagoDingo/notes-pega[...], 'Data-Page.md'
 ```
 
 #### 3. Publish this project to any host provider of your choosing, and make changes to your content 💻 on-the-fly.
