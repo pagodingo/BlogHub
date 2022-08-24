@@ -18,16 +18,17 @@ p {
 }
 table {
     font-size: inherit;
-    border: 1px solid #aaa;
+    border: 1px solid #ddd;
     font: 100%;
-    padding: 0
+    padding: 0;
+    border-collapse: collapse;
+}
+table th, tr {
+    border-bottom: 1px solid #ddd;
 }
 
-table:nth-of-type(even) {
-    background: #dedede;
-}
-table th {
-    border-bottom: 1px solid #bbb;
+table td {
+    border-right: 1px solid #ddd;
 }
 
 input,
@@ -138,7 +139,6 @@ hr {
     border: 0.5px solid #ddd;
     width: 100%
 }
-
 ol {
     margin: 1em 0 1em 2em;
 }

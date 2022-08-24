@@ -4,9 +4,9 @@ import React from 'react';
 import axios from 'axios';
 import toolKit from './pocket-knives/export'
 import Template from './Template'
+
 const archive = process.env.REACT_APP_GIT_USER_REPO
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
-
 const md = require('markdown-it')(); // https://github.com/markdown-it/markdown-it
 
 class App extends React.Component{/*
@@ -29,11 +29,13 @@ class App extends React.Component{/*
   componentDidMount(){
     this.getContents("");
     this.getPage("",titlePage);
-  } /*-------------------------
+  } /*
+---------------------------
 
 
     Controllers
----------------------------*/
+---------------------------
+*/
   getPage = (path,page) => {
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
         request.then((response) => {
@@ -97,11 +99,12 @@ class App extends React.Component{/*
   searchChange = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
-   } /* ----------------------
+   } /* 
+--------------------------
   
   
     View
-  --------------------------
+--------------------------
 */
 
   render(){
