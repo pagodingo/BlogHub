@@ -18,25 +18,25 @@ p {
 }
 table {
     font-size: inherit;
-    border: 1px solid #ddd;
+    border: 1px solid #f6f8fa;
     font: 100%;
     padding: 0;
     border-collapse: collapse;
 }
 table th, tr {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #f6f8fa;
 }
 table tr:nth-of-type(even){
     background: #f6f8fa; /*github table tr styling*/
 }
 
 table td {
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #f6f8fa;
     padding: 5px
 }
 
 table th {
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #f6f8fa;
     padding: 5px;
 }
 
