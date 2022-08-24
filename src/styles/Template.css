@@ -20,10 +20,6 @@ body, html {
     overflow-y: scroll; 
     overflow-x: hidden;
   }
-
-  /*.chevron:hover {
-    background: blue !important;
-  } */
   
   #right {
     position: absolute;
