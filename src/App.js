@@ -58,8 +58,7 @@ class App extends React.Component{/*
   }
   
   nextPage = (e) => {
-    if (e.target.innerHTML.includes("📚")) 
-    {
+    if (e.target.innerHTML.includes("📚")) {
       this.nextDirectory(e)
       return
     }
