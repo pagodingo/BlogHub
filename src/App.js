@@ -81,7 +81,7 @@ class App extends React.Component{/*
         this.setState({
           directory: ["root"],
           path: ""
-    })} // base case
+    })}
 
     this.getContents(directory);
   }
