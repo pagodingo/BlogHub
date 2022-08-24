@@ -4,7 +4,6 @@ import React from 'react';
 import axios from 'axios';
 import toolKit from './pocket-knives/export'
 import Template from './Template'
-import { eventWrapper } from '@testing-library/user-event/dist/utils';
 const archive = process.env.REACT_APP_GIT_USER_REPO
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
 
@@ -38,7 +37,7 @@ class App extends React.Component{/*
   getPage = (path,page) => {
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
         request.then((response) => {
-          let html = md.render(response.data);    
+          let html = md.render(response.data); 
           document.getElementById("right").scrollTop = 0 // Set window @ top of new page
           document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                       toolKit.Images.loadEmbeddedImages(archive)
