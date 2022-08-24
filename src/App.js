@@ -39,7 +39,7 @@ class App extends React.Component{/*
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
         request.then((response) => {
           let html = md.render(response.data);    
-          document.getElementById("right").scrollTop = 0 // Set window @ top of next page
+          document.getElementById("right").scrollTop = 0 // Set window @ top of new page
           document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                       toolKit.Images.loadEmbeddedImages(archive)
   })}
