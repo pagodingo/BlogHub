@@ -62,7 +62,7 @@ overrides some markdown styling
   background-color: #ffffff;
   text-align: right;
   padding-top: 10px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #f6f8fa;
 }
 
 #page-title {
@@ -78,7 +78,7 @@ input {
   background-color: transparent;
   resize: none;
   outline: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #f6f8fa;
 }
 
 
