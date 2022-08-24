@@ -16,8 +16,6 @@ class App extends React.Component{/*
 
 
     Model
-
-
 --------------------------
 */
   constructor(){
@@ -30,32 +28,25 @@ class App extends React.Component{/*
     }
   }
 
- // 1. Load Table of Contents
-  // 2. Load Title Page
-
   componentDidMount(){
     axios.get(`https://api.github.com/repos/${archive}/contents/`).then(response => {
-
       this.setState ({
           contents: toolKit.Markdown.returnMarkdownFiles(response.data) 
-      })
-    }) // 1.
+      })}) 
+    this.getPage("",titlePage)
+  } /*-------------------------
 
 
-    axios.get(`https://raw.githubusercontent.com/${archive}/master/${titlePage}`).then((response) => {
-      let html = md.render(response.data)
-      document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
-                                                  toolKit.Images.loadEmbeddedImages(archive)   
-    }) // 2.
-  }
-  /*-------------------------
-
-
-    Controller
-
-
-  ---------------------------
-  */
+    Controllers
+---------------------------*/
+  getPage = (path,page) => {
+    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
+        request.then((response) => {
+          let html = md.render(response.data);    
+          document.getElementById("right").scrollTop = 0 // Set window @ top of next page
+          document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
+                                                      toolKit.Images.loadEmbeddedImages(archive)
+  })}
   
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) 
@@ -66,17 +57,8 @@ class App extends React.Component{/*
 
     let path = this.state.directory.filter(dir => dir !== "root").join("");
     let nextPage = e.target.innerHTML
-    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}/${nextPage}`)
 
-    request.then((response) => {
-      let html = md.render(response.data);
-      
-      document.getElementById("right").scrollTop = 0 // Set window @ top of next page
-      
-      document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
-                                                  toolKit.Images.loadEmbeddedImages(archive)
-    })
-
+      this.getPage(path,"/"+ nextPage)
       this.setState({currentPage: nextPage})
   }
 
@@ -91,8 +73,7 @@ class App extends React.Component{/*
         this.setState({
           directory: ["root"],
           path: ""
-        })
-    } // base case
+    })} // base case
 
     axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`).then(response => {
         this.setState ({
@@ -103,8 +84,7 @@ class App extends React.Component{/*
           this.state.directory.push(directory) 
         }
         console.log(this.state.directory)
-    })
-  }
+    })}
   
 
   changeDirectory = (e) => {
@@ -119,12 +99,10 @@ class App extends React.Component{/*
   searchChange = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
-  } /* ----------------------
+   } /* ----------------------
   
   
     View
-  
-  
   --------------------------
 */
 
@@ -150,7 +128,5 @@ class App extends React.Component{/*
         nextDirectory={this.nextDirectory}
         />
       </>
-    )
-  }
-}
+    )}}
 export default App
