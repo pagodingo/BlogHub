@@ -26,9 +26,18 @@ table {
 table th, tr {
     border-bottom: 1px solid #ddd;
 }
+table tr:nth-of-type(even){
+    background: #f6f8fa; /*github table tr styling*/
+}
 
 table td {
     border-right: 1px solid #ddd;
+    padding: 5px
+}
+
+table th {
+    border-right: 1px solid #ddd;
+    padding: 5px;
 }
 
 input,
