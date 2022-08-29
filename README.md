@@ -1,8 +1,9 @@
 ### Blogs powered by GitHub
-<a href="https://master--sparkly-mandazi-9d0d40.netlify.app/" target="_blank">Live Demo</a>
-<a href="https://master--sparkly-mandazi-9d0d40.netlify.app/"><img src="./preview.png" target="_blank"/></a>
 
 This project was created to help users host and browse through a repository of Markdown files & images using GitHub.
+
+<a href="https://master--sparkly-mandazi-9d0d40.netlify.app/" target="_blank">Live Demo</a>
+<a href="https://master--sparkly-mandazi-9d0d40.netlify.app/"><img src="./preview.png" target="_blank"/></a>
 
 #### 1. Create or determine a <u>source repository.</u>
 
