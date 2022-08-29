@@ -2,6 +2,8 @@
 <a href="https://master--sparkly-mandazi-9d0d40.netlify.app/" target="_blank">Live Demo</a>
 <a href="https://master--sparkly-mandazi-9d0d40.netlify.app/"><img src="./preview.png" target="_blank"/></a>
 
+This project was created to help users host and browse through a repository of Markdown files & images using GitHub.
+
 #### 1. Create or determine a <u>source repository.</u>
 
 > Example: [github.com/pagodingo/notes-pega](https://github.com/pagodingo/notes-pega)
