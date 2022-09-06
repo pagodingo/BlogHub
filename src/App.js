@@ -54,8 +54,7 @@ class App extends React.Component{/*
         if (this.state.directory.includes(directory) === false){
           this.state.directory.push(directory) 
         }
-    })
-  }
+  })}
   
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) {
@@ -98,7 +97,7 @@ class App extends React.Component{/*
   searchChange = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
-   } /* 
+  } /* 
 --------------------------
   
   
