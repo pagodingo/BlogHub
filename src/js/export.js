@@ -2,8 +2,8 @@ import Images from "./jsImages";
 import Markdown from "./jsMarkdown";
 
 const exportFiles = {
-    Images: Images,
-    Markdown: Markdown,
+    Images: new Images(),
+    Markdown: new Markdown(),
 }
 
 export default exportFiles
