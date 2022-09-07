@@ -2,7 +2,7 @@ import './styles/Template.css';
 import './styles/markdown-styling.css'
 import React from 'react';
 import axios from 'axios';
-import js from './javascript/export'
+import js from './js/export'
 import Template from './Template'
 
 const archive = process.env.REACT_APP_GIT_USER_REPO
