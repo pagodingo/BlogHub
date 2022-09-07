@@ -2,7 +2,7 @@ import './styles/Template.css';
 import './styles/markdown-styling.css'
 import React from 'react';
 import axios from 'axios';
-import toolKit from './pocket-knives/export'
+import js from './javascript/export'
 import Template from './Template'
 
 const archive = process.env.REACT_APP_GIT_USER_REPO
@@ -41,14 +41,14 @@ class App extends React.Component{/*
         request.then((response) => {
           let html = md.render(response.data);
           document.getElementById("right").scrollTop = 0 // Set window @ top of new page
-          document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
-                                                      toolKit.Images.loadEmbeddedImages(archive)
+          document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html)
+                                                      js.Images.loadEmbeddedImages(archive)
   })}
 
   getContents = (directory) => {
     axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`).then(response => {
         this.setState ({
-            contents: toolKit.Markdown.returnMarkdownFiles(response.data),
+            contents: js.Markdown.returnMarkdownFiles(response.data),
         })
 
         if (this.state.directory.includes(directory) === false){

@@ -1,4 +1,4 @@
-const pkImages = {
+const jsImages = {
     loadEmbeddedImages: loadEmbeddedImages,
 }
 
@@ -18,4 +18,4 @@ function loadEmbeddedImages(source){
     });
 }
 
-export default pkImages
+export default jsImages

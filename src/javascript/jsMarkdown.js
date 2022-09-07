@@ -1,4 +1,4 @@
-const pkMarkdown = {
+const jsMarkdown = {
     cleanBeforeRender: cleanBeforeRender,
     returnMarkdownFiles: returnMarkdownFiles
 }
@@ -24,4 +24,4 @@ function cleanBeforeRender(html){
   .replace(/&quot;/g, "")
 }
 
-export default pkMarkdown
+export default jsMarkdown
