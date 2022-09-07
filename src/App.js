@@ -39,7 +39,7 @@ class App extends React.Component{/*
   getPage = (path,page) => {
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
         request.then((response) => {
-          let html = md.render(response.data); 
+          let html = md.render(response.data);
           document.getElementById("right").scrollTop = 0 // Set window @ top of new page
           document.getElementById("main").innerHTML = toolKit.Markdown.cleanBeforeRender(html)
                                                       toolKit.Images.loadEmbeddedImages(archive)
@@ -52,11 +52,11 @@ class App extends React.Component{/*
         })
 
         if (this.state.directory.includes(directory) === false){
-          this.state.directory.push(directory) 
+          this.state.directory.push(directory)
         }
     })
   }
-  
+
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) {
       this.nextDirectory(e)
@@ -85,7 +85,7 @@ class App extends React.Component{/*
 
     this.getContents(directory);
   }
-  
+
   changeDirectory = (e) => {
     let directory = e.target.innerHTML.replace("/","")
 
@@ -98,10 +98,10 @@ class App extends React.Component{/*
   searchChange = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
-   } /* 
+   } /*
 --------------------------
-  
-  
+
+
     View
 --------------------------
 */
@@ -119,11 +119,11 @@ class App extends React.Component{/*
 
     return (
       <>
-        <Template 
-        currentPage={this.state.currentPage} 
+        <Template
+        currentPage={this.state.currentPage}
         directory={this.state.directory}
-        contents={filteredContents} 
-        nextPage={this.nextPage}
+        contents={filteredContents}
+        nextPage={this.nextPage} 
         searchChange={this.searchChange}
         nextDirectory={this.nextDirectory}
         />
