@@ -1,6 +1,6 @@
-function jsMarkdown() {};
+function Markdown() {};
 
-jsMarkdown.prototype.returnMarkdownFiles = (source) => {
+Markdown.prototype.returnMarkdownFiles = (source) => {
   let files = []
   source.forEach(item => {
     if (item.name.endsWith('.md')){
@@ -13,11 +13,11 @@ jsMarkdown.prototype.returnMarkdownFiles = (source) => {
   return files
 }
 
-jsMarkdown.prototype.cleanBeforeRender = (html) => {
+Markdown.prototype.cleanBeforeRender = (html) => {
   return html
   .replace(/&lt;/g, "<")
   .replace(/&gt;/g, ">")
   .replace(/&quot;/g, "")
 }
 
-export default jsMarkdown
+export default Markdown
