@@ -54,9 +54,8 @@ class App extends React.Component{/*
         if (this.state.directory.includes(directory) === false){
           this.state.directory.push(directory)
         }
-    })
-  }
-
+  })}
+  
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) {
       this.nextDirectory(e)
@@ -98,7 +97,7 @@ class App extends React.Component{/*
   searchChange = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
-   } /*
+  } /* 
 --------------------------
 
 
@@ -117,16 +116,16 @@ class App extends React.Component{/*
       return false
     })
 
-    return (
-      <>
-        <Template
-        currentPage={this.state.currentPage}
-        directory={this.state.directory}
-        contents={filteredContents}
-        nextPage={this.nextPage} 
-        searchChange={this.searchChange}
-        nextDirectory={this.nextDirectory}
-        />
-      </>
-    )}}
+  return (
+    <>
+      <Template
+      currentPage={this.state.currentPage}
+      directory={this.state.directory}
+      contents={filteredContents}
+      nextPage={this.nextPage} 
+      searchChange={this.searchChange}
+      nextDirectory={this.nextDirectory}
+      />
+    </>
+  )}}
 export default App
