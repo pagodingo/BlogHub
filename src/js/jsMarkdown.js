@@ -11,8 +11,7 @@ function jsMarkdown() {
         if (item.name !== "images"){
           files.push(`📚 ${item.name}`)
         }
-      }
-    })
+    }})
     return files
   }
 
