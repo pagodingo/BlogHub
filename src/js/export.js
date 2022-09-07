@@ -1,5 +1,5 @@
-import Images from "./jsImages";
-import Markdown from "./jsMarkdown";
+import Images from "./Images";
+import Markdown from "./Markdown";
 
 const exportFiles = {
     Images: new Images(),
