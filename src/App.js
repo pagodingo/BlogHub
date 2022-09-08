@@ -46,7 +46,8 @@ class App extends React.Component{/*
   })}
 
   getContents = (directory) => {
-    axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`).then(response => {
+    let request = axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`)
+        request.then(response => {
         this.setState ({
             contents: js.Markdown.returnMarkdownFiles(response.data),
         })
