@@ -8,8 +8,8 @@ const Template = ({ currentPage, contents, nextPage, nextSearch, currentDirector
     <>
       <div id="left">     
         <p style={{ textAlign: "left"}}>Contents</p>
-        <input type="text" placeholder="search" onChange={searchField} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
-        {directory.filter(dir => dir !== "").map((dir, i) => {
+        <input type="text" placeholder="search" onChange={nextSearch} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
+        {currentDirectory.filter(dir => dir !== "").map((dir, i) => {
           return (
             <a href={"/#"} id="link" key={i} onClick={(e)=> nextDirectory(e)}>
               {"/" + dir}
