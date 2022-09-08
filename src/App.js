@@ -83,7 +83,7 @@ class App extends React.Component{
     this.getContents(directory);
   }
 
-  searchChange = (e) => {
+  searchField = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
   }
@@ -108,7 +108,7 @@ class App extends React.Component{
       directory={this.state.directory}
       contents={filteredContents}
       nextPage={this.nextPage} 
-      searchChange={this.searchChange}
+      searchChange={this.searchField}
       nextDirectory={this.nextDirectory}
       />
     </>
