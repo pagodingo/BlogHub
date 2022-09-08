@@ -1,5 +1,5 @@
 const archive = process.env.REACT_APP_GIT_USER_REPO
-const Template = ({ currentPage, contents, nextPage, searchChange, directory, nextDirectory}) => {
+const Template = ({ currentPage, contents, nextPage, searchBox, directory, nextDirectory}) => {
   const editOnGithubHandler = () => {
     window.open(
     `https://www.github.com/${archive}/edit/master/${currentPage}`, "_blank");
@@ -8,7 +8,7 @@ const Template = ({ currentPage, contents, nextPage, searchChange, directory, ne
     <>
       <div id="left">     
         <p style={{ textAlign: "left"}}>Contents</p>
-        <input type="text" placeholder="search" onChange={searchChange} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
+        <input type="text" placeholder="search" onChange={searchBox} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
         {directory.filter(dir => dir !== "").map((dir, i) => {
           return (
             <a href={"/#"} id="link" key={i} onClick={(e)=> nextDirectory(e)}>
