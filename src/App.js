@@ -9,11 +9,11 @@ const archive = process.env.REACT_APP_GIT_USER_REPO
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
 const md = require('markdown-it')(); // https://github.com/markdown-it/markdown-it
 
-class App extends React.Component{/*
-
-          Model
+class App extends React.Component{/*   
 --------------------------
-*/
+           Model         
+--------------------------
+*/       
   constructor(){
     super()
     this.state = {
@@ -28,9 +28,9 @@ class App extends React.Component{/*
     this.getContents("");
     this.getPage("",titlePage);
   } /*
-
+--------------------------
         Requestors
----------------------------
+--------------------------
 */
   getPage = (path,page) => {
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
@@ -52,9 +52,9 @@ class App extends React.Component{/*
           this.state.directory.push(directory)
         }
   })}/*
-
-       Controllers
----------------------------
+--------------------------
+        Controllers
+--------------------------
 */
   
   nextPage = (e) => {
@@ -90,8 +90,8 @@ class App extends React.Component{/*
     let input = e.target.value
     this.setState({ searchField: input})
   } /* 
-  
-          View
+--------------------------
+           View
 --------------------------
 */
 
