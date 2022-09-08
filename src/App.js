@@ -85,15 +85,6 @@ class App extends React.Component{/*
     this.getContents(directory);
   }
 
-  changeDirectory = (e) => {
-    let directory = e.target.innerHTML.replace("/","")
-
-    if (directory === "root"){
-      this.nextDirectory("")
-      return
-    }
-  }
-
   searchChange = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
