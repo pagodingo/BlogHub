@@ -1,9 +1,9 @@
 import Images from "./Images";
 import Markdown from "./Markdown";
 
-const exportFiles = {
+const Files = {
     Images: new Images(),
     Markdown: new Markdown(),
 }
 
-export default exportFiles
+export default Files
