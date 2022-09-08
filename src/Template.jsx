@@ -1,5 +1,5 @@
 const archive = process.env.REACT_APP_GIT_USER_REPO
-const Template = ({ currentPage, contents, nextPage, searchField, directory, nextDirectory}) => {
+const Template = ({ currentPage, contents, nextPage, nextSearch, currentDirectory, nextDirectory}) => {
   const editOnGithubHandler = () => {
     window.open(
     `https://www.github.com/${archive}/edit/master/${currentPage}`, "_blank");
