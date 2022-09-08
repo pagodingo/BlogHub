@@ -33,7 +33,7 @@ class App extends React.Component{/*
 ---------------------------
 
 
-    Controllers
+    Requests
 ---------------------------
 */
   getPage = (path,page) => {
@@ -54,7 +54,13 @@ class App extends React.Component{/*
         if (this.state.directory.includes(directory) === false){
           this.state.directory.push(directory)
         }
-  })}
+  })}   /*
+---------------------------
+
+
+    Controllers
+---------------------------
+*/
   
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) {
