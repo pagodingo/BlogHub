@@ -33,7 +33,7 @@ class App extends React.Component{/*
 ---------------------------
 
 
-    Requesters
+    REST API
 ---------------------------
 */
   getPage = (path,page) => {
