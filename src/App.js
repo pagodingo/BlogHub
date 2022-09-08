@@ -9,11 +9,10 @@ const archive = process.env.REACT_APP_GIT_USER_REPO
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
 const md = require('markdown-it')(); // https://github.com/markdown-it/markdown-it
 
-class App extends React.Component{/*   
---------------------------
+class App extends React.Component{
+/*--------------------------
            Model         
---------------------------
-*/       
+--------------------------*/       
   constructor(){
     super()
     this.state = {
@@ -21,17 +20,17 @@ class App extends React.Component{/*
       currentPage: titlePage,
       searchField: "",
       directory: ["root"],
-    }
-  }
-
+   }} 
+/*-------------------------
+          Set up
+--------------------------*/
   componentDidMount(){
     this.getContents("");
     this.getPage("",titlePage);
-  } /*
---------------------------
-        Requestors
---------------------------
-*/
+  } 
+/*--------------------------
+         Requestors
+--------------------------*/
   getPage = (path,page) => {
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
         request.then((response) => {
@@ -40,7 +39,7 @@ class App extends React.Component{/*
           document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html)
                                                       js.Images.loadEmbeddedImages(archive)
   })}
-
+           
   getContents = (directory) => {
     let request = axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`)
         request.then(response => {
@@ -51,11 +50,10 @@ class App extends React.Component{/*
         if (this.state.directory.includes(directory) === false){
           this.state.directory.push(directory)
         }
-  })}/*
---------------------------
+  })}
+/*--------------------------
         Controllers
---------------------------
-*/
+--------------------------*/
   
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) {
@@ -82,18 +80,16 @@ class App extends React.Component{/*
           directory: ["root"],
           path: ""
     })}
-
     this.getContents(directory);
   }
 
   searchChange = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
-  } /* 
---------------------------
-           View
---------------------------
-*/
+  }
+/*--------------------------
+            View
+--------------------------*/
 
   render(){
     let keywords = this.state.searchField.split(" ")
@@ -101,10 +97,9 @@ class App extends React.Component{/*
       for (var i = 0; i < keywords.length; ++i){
         if (c.toLowerCase().includes(keywords[i])){
           return true
-        }
-      }
+      }}
       return false
-    })
+  })
 
   return (
     <>
