@@ -108,7 +108,7 @@ class App extends React.Component{
       directory={this.state.directory}
       contents={filteredContents}
       nextPage={this.nextPage} 
-      searchChange={this.searchField}
+      searchField={this.searchField}
       nextDirectory={this.nextDirectory}
       />
     </>
