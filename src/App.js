@@ -11,7 +11,9 @@ const md = require('markdown-it')(); // https://github.com/markdown-it/markdown-
 
 class App extends React.Component{
 /*--------------------------
-           Model         
+
+        Constructor        
+           
 --------------------------*/       
   constructor(){
     super()
@@ -19,18 +21,22 @@ class App extends React.Component{
       contents: [],
       currentPage: titlePage,
       searchField: "",
-      directory: ["root"],
+      currentDirectory: ["root"],
    }} 
-/*-------------------------
-          Set up
---------------------------*/
+/*--------------------------
+
+       Before Render      
+           
+--------------------------*/     
   componentDidMount(){
     this.getContents("");
     this.getPage("",titlePage);
   } 
 /*--------------------------
-         Requestors
---------------------------*/
+
+          Getters    
+           
+--------------------------*/     
   getPage = (path,page) => {
     let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
         request.then((response) => {
@@ -47,21 +53,22 @@ class App extends React.Component{
             contents: js.Markdown.returnMarkdownFiles(response.data),
         })
 
-        if (this.state.directory.includes(directory) === false){
-          this.state.directory.push(directory)
+        if (this.state.currentDirectory.includes(directory) === false){
+          this.state.currentDirectory.push(directory)
         }
   })}
 /*--------------------------
-        Controllers
---------------------------*/
-  
+
+         Controllers        
+           
+--------------------------*/     
   nextPage = (e) => {
     if (e.target.innerHTML.includes("📚")) {
       this.nextDirectory(e)
       return
     }
 
-    let path = this.state.directory.filter(dir => dir !== "root").join("");
+    let path = this.state.currentDirectory.filter(dir => dir !== "root").join("");
     let nextPage = e.target.innerHTML
 
       this.getPage(path,"/"+ nextPage)
@@ -77,20 +84,21 @@ class App extends React.Component{
 
     if (directory === ""){
         this.setState({
-          directory: ["root"],
+          currentDirectory: ["root"],
           path: ""
     })}
     this.getContents(directory);
   }
 
-  searchField = (e) => {
+  nextSearch = (e) => {
     let input = e.target.value
     this.setState({ searchField: input})
   }
 /*--------------------------
-            View
---------------------------*/
 
+           Render        
+           
+--------------------------*/     
   render(){
     let keywords = this.state.searchField.split(" ")
     let filteredContents = this.state.contents.filter(c => {
@@ -105,10 +113,10 @@ class App extends React.Component{
     <>
       <Template
       currentPage={this.state.currentPage}
-      directory={this.state.directory}
+      currentDirectory={this.state.currentDirectory}
       contents={filteredContents}
       nextPage={this.nextPage} 
-      searchField={this.searchField}
+      nextSearch={this.nextSearch}
       nextDirectory={this.nextDirectory}
       />
     </>
