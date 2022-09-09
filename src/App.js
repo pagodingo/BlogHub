@@ -1,5 +1,5 @@
-import './styles/Template.css';
-import './styles/markdown-styling.css'
+import './css/Template.css';
+import './css/markdown-styling.css'
 import React from 'react';
 import axios from 'axios';
 import js from './js/export'
