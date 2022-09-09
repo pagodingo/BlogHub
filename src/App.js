@@ -100,7 +100,7 @@ class App extends React.Component{
            
 --------------------------*/     
   render(){
-    let keywords = this.state.searchField.split(" ")
+    let keywords = this.state.nextSearch.split(" ")
     let filteredContents = this.state.contents.filter(c => {
       for (var i = 0; i < keywords.length; ++i){
         if (c.toLowerCase().includes(keywords[i])){
