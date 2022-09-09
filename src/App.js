@@ -20,7 +20,7 @@ class App extends React.Component{
     this.state = {
       contents: [],
       currentPage: titlePage,
-      searchField: "",
+      nextSearch: "",
       currentDirectory: ["root"],
    }} 
 /*--------------------------
@@ -92,7 +92,7 @@ class App extends React.Component{
 
   nextSearch = (e) => {
     let input = e.target.value
-    this.setState({ searchField: input})
+    this.setState({ nextSearch: input})
   }
 /*--------------------------
 
