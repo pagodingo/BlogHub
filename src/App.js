@@ -29,9 +29,9 @@ class App extends React.Component{
            
 --------------------------*/     
   componentDidMount(){
+    this.getPage("",titlePage);        
     this.getContents("");
-    this.getPage("",titlePage);
-  } 
+  }
 /*--------------------------
 
           Getters    
