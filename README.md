@@ -17,7 +17,7 @@ This project was created to help users host and browse through a repository of M
 REACT_APP_GIT_USER_REPO={User}/{Repo}
 REACT_APP_GIT_ARCHIVE_TITLEPAGE={titlePage}
 
-Example: (PagoDingo/notes-pega[...], 'Data-Page.md'
+Example: PagoDingo/notes-pega, 'Data-Page.md'
 ```
 
 #### 3. Publish this project to any host provider of your choosing, and make changes to your content 💻 on-the-fly.
