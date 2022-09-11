@@ -32,7 +32,7 @@ Host Recommendations
 ---
   **Bugs & Features:**
 
-Being able to *switch between multiple repositories* is next on the agenda. But before that can happen, there are a few **kinks that need to be worked out**:
+Being able to **switch between multiple repositories** is next on the agenda. But before that can happen, there are a few **kinks that need to be worked out**:
 
 **1. Embedded images are supported, external images are not.** :heavy_check_mark: [Fixed: July 27, 2022]
 
