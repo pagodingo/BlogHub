@@ -30,6 +30,8 @@ Host Recommendations
 - <a href="https://netlify.com" target="_blank">Netlify</a>
 - <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
 ---
+Features & Bugs:
+
 Being able to access <u>multiple repositories</u> is next on the agenda. But before that can happen, there are a few **kinks that need to be worked out**:
 
 **1. Embedded images are supported, external images are not.** :heavy_check_mark: [Fixed: July 27, 2022]
@@ -49,3 +51,5 @@ Due to how the HTML is produced from Markdown, it's sort of complicated to fix i
 **2. Folders not yet supported.** **~** ` 2D sub folders supported... 2D and beyond currently in progress`
 
 Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This doesn't feel like a hard problem to fix either, but, I know it will take a lot of careful thought to get it right, and there's no rush to do it just yet - if it was really necessary, there is a number of ways to provide the ability of grouping files.
+
+**3. Switching repositories** `in planning stage`
