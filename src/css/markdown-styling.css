@@ -131,7 +131,7 @@ h1:first-child {
     border-top: none;
 }
 h1:first-letter {
-    color: red;
+    color: #ff4141;
 }
 h2 {
     font-size: 150%;
