@@ -48,7 +48,7 @@ It's a really easy problem to fix. It's only a design flaw.
 
 Due to how the HTML is produced from Markdown, it's sort of complicated to fix it in a way that makes sense. It's fixable, but to fix it the only way I know how would just be a bandaid.
 
-**2. Folders not yet supported.** **~** ` 2D sub folders supported... 2D and beyond currently in progress`
+**2. Folders not yet supported.** **~** ` 2D sub folders supported... 2D and beyond in progress`
 
 Only files present in the `/root` of your source repository get rendered, and anything that <u>isn't markdown</u> is also ignored. This doesn't feel like a hard problem to fix either, but, I know it will take a lot of careful thought to get it right, and there's no rush to do it just yet - if it was really necessary, there is a number of ways to provide the ability of grouping files.
 
