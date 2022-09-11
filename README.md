@@ -9,7 +9,7 @@ This project was created to help users host and browse through a repository of M
 
 > Example: [github.com/pagodingo/notes-pega](https://github.com/pagodingo/notes-pega)
 
-#### 2. Clone <u>this</u> repository, reference your source, and select your desired title page.
+#### 2. Clone <u>this</u> repository, reference your source, and select your desired title page. 
 
 ```js
 # environment
