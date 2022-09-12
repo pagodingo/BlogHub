@@ -4,7 +4,7 @@ const Template = ({ currentPage,
                     nextPage,
                     nextSearch, 
                     currentDirectory,
-                    nextDirectory
+                    getVisitedDirectory
                   }) => {
   const editOnGithubHandler = () => {
     window.open(
@@ -17,7 +17,7 @@ const Template = ({ currentPage,
         <input type="text" placeholder="search" onChange={nextSearch} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
         {currentDirectory.filter(dir => dir !== "").map((dir, i) => {
           return (
-            <a href={"/#"} id="link" key={i} onClick={(e)=> nextDirectory(e)}>
+            <a href={"/#"} id="link" key={i} onClick={ () => getVisitedDirectory(dir)}>
               {"/" + dir}
             </a>
           )

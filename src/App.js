@@ -1,124 +1,197 @@
-import './css/Template.css';
-import './css/markdown-styling.css'
-import React from 'react';
-import axios from 'axios';
-import js from './js/export'
-import Template from './Template'
+import "./css/Template.css";
+import "./css/markdown-styling.css";
+import React from "react";
+import axios from "axios";
+import js from "./js/export";
+import Template from "./Template";
 
-const archive = process.env.REACT_APP_GIT_USER_REPO
-const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE
-const md = require('markdown-it')(); // https://github.com/markdown-it/markdown-it
+const archive = process.env.REACT_APP_GIT_USER_REPO;
+const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
+const md = require("markdown-it")(); // https://github.com/markdown-it/markdown-it
 
-class App extends React.Component{
-/*--------------------------
+class App extends React.Component {
+  /*--------------------------
 
         Constructor        
            
---------------------------*/       
-  constructor(){
-    super()
+--------------------------*/
+  constructor() {
+    super();
     this.state = {
       contents: [],
       currentPage: titlePage,
-      nextSearch: "",
       currentDirectory: ["root"],
-   }} 
-/*--------------------------
+      nextSearch: "",
+    };
+  }
+  /*--------------------------
 
        Before Render      
            
---------------------------*/     
-  componentDidMount(){
-    this.getPage("",titlePage);        
-    this.getContents("");
+--------------------------*/
+  componentDidMount() {
+    this.getPage(titlePage);
+    this.getContents();
   }
-/*--------------------------
+  /*--------------------------
 
           Getters    
            
---------------------------*/     
-  getPage = (path,page) => {
-    let request = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`)
-        request.then((response) => {
-          let html = md.render(response.data);
-          document.getElementById("right").scrollTop = 0 // Set window @ top of new page
-          document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html)
-                                                      js.Images.loadEmbeddedImages(archive)
-  })}
-           
-  getContents = (directory) => {
-    let request = axios.get(`https://api.github.com/repos/${archive}/contents/${directory}`)
-        request.then(response => {
-        this.setState ({
-            contents: js.Markdown.returnMarkdownFiles(response.data),
-        })
+--------------------------*/
+  getPage = (page) => {
+    let path = "";
+    let currentDirectory = this.state.currentDirectory;
+    if (currentDirectory.length === 1) {
+      path = "";
+    } else {
+      for (var i = 1; i < currentDirectory.length; ++i) {
+        path += currentDirectory[i] + "/";
+      }
+    }
+    let request = axios.get(
+      `https://raw.githubusercontent.com/${archive}/master/${path}${page}`
+    );
+    request.then((response) => {
+      let html = md.render(response.data);
+      document.getElementById("right").scrollTop = 0; // Set window @ top of new page
+      document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html);
+                                                  js.Images.loadEmbeddedImages(archive);
+    });
+  };
 
-        if (this.state.currentDirectory.includes(directory) === false){
-          this.state.currentDirectory.push(directory)
+  getContents = () => {
+    let path = "";
+    let currentDirectory = this.state.currentDirectory;
+    if (currentDirectory.length === 1) {
+      path = "";
+    } else {
+      for (var i = 1; i < currentDirectory.length; ++i) {
+        // jesus c* was it really that easy?
+        path += currentDirectory[i] + "/";
+      }
+    }
+
+    let request = axios.get(
+      `https://api.github.com/repos/${archive}/contents/${path}`
+    );
+    request.then((response) => {
+      this.setState({
+        contents: js.Markdown.returnMarkdownFiles(response.data),
+      });
+    });
+  };
+
+  getVisitedDirectory = (directory) => {
+    let path = "";
+    let currentDirectory = this.state.currentDirectory;
+
+    if (directory === "root") {
+      path = "";
+
+    } else {
+      for (var i = 1; i < currentDirectory.length; ++i) {
+        path += currentDirectory[i] + "/";
+        if (currentDirectory[i] === directory) {
+          break
         }
-  })}
-/*--------------------------
+      }
+    }
+    let chain = path.split("/")
+    chain.pop()
+    chain.unshift("root")
+    let request = axios.get(
+      `https://api.github.com/repos/${archive}/contents/${path}`
+    );
+    request.then((response) => {
+      this.setState({
+        contents: js.Markdown.returnMarkdownFiles(response.data),
+        currentDirectory: chain
+      });
+    });
+  };
+  /*--------------------------
 
          Controllers        
            
---------------------------*/     
+--------------------------*/
   nextPage = (e) => {
-    if (e.target.innerHTML.includes("📚")) {
-      this.nextDirectory(e)
-      return
+    let nextPage = e.target.innerHTML;
+
+    if (nextPage.includes("📚")) {
+      this.nextDirectory(e);
+      return;
     }
 
-    let path = this.state.currentDirectory.filter(dir => dir !== "root").join("");
-    let nextPage = e.target.innerHTML
-
-      this.getPage(path,"/"+ nextPage)
-      this.setState({currentPage: nextPage})
-  }
+    this.setState({ currentPage: nextPage }, () => {
+      this.getPage(nextPage);
+    });
+  };
 
   nextDirectory = (e) => {
-    let directory = e.target.innerHTML
-    .replace("📚","")
-    .replace(" ","")
-    .replace("/","")
-    .replace("root","")
+    let currentDirectory = this.state.currentDirectory;
+    let nextDirectory = e.target.innerHTML
 
-    if (directory === ""){
-        this.setState({
-          currentDirectory: ["root"],
-          path: ""
-    })}
-    this.getContents(directory);
-  }
+      .replace("📚", "")
+      .replace(" ", "")
+      .replace("/", "")
+      .replace("root", "");
+
+    //Opening VISITED directories....
+    if (nextDirectory === "") {
+      this.setState({
+        currentDirectory: ["root"],
+        path: "",
+      });
+      return;
+    }
+
+    //Opening NEW directories...
+
+    if (!currentDirectory.includes(nextDirectory)) {
+      currentDirectory.push(nextDirectory);
+      this.setState(
+        {
+          currentDirectory: currentDirectory,
+        },
+        () => {
+          this.getContents();
+        }
+      );
+    }
+  };
 
   nextSearch = (e) => {
-    let input = e.target.value
-    this.setState({ nextSearch: input})
-  }
-/*--------------------------
+    let input = e.target.value;
+    this.setState({ nextSearch: input });
+  };
+  /*--------------------------
 
            Render        
            
---------------------------*/     
-  render(){
-    let keywords = this.state.nextSearch.split(" ")
-    let filteredContents = this.state.contents.filter(c => {
-      for (var i = 0; i < keywords.length; ++i){
-        if (c.toLowerCase().includes(keywords[i])){
-          return true
-      }}
-      return false
-  })
+--------------------------*/
+  render() {
+    const keywords = this.state.nextSearch.split(" ");
+    const filteredContents = this.state.contents.filter((c) => {
+      for (var i = 0; i < keywords.length; ++i) {
+        if (c.toLowerCase().includes(keywords[i])) {
+          return true;
+        }
+      }
+      return false;
+    });
 
-  return (
-    <>
-      <Template
-      currentPage={this.state.currentPage}
-      currentDirectory={this.state.currentDirectory}
-      contents={filteredContents}
-      nextPage={this.nextPage} 
-      nextSearch={this.nextSearch}
-      nextDirectory={this.nextDirectory}
-      />
-    </>
-  )}}
-export default App
+    return (
+      <>
+        <Template
+          currentPage={this.state.currentPage}
+          currentDirectory={this.state.currentDirectory}
+          contents={filteredContents}
+          nextPage={this.nextPage}
+          nextSearch={this.nextSearch}
+          getVisitedDirectory={this.getVisitedDirectory}
+        />
+      </>
+    );
+  }
+}
+export default App;
