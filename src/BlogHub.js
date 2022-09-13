@@ -202,19 +202,9 @@ class BlogHub extends React.Component {
       .replace("/", "")
       .replace("root", "");
 
-    // Push this folder (if we haven't been here before)
-    if (!currentDirectory.includes(folder)) {
-      currentDirectory.push(folder);
-
-         // We'll set our new 'current directory', for when we need to reference it later.
-      this.setState({
-          currentDirectory: currentDirectory,
-      }, // And define a call back to display our new contents.
-        () => {
-          this.getContents();
-        }
-      );
-    }
+      // Add New Folder, Set Current Directory, Get New Contents.
+      currentDirectory.push(folder) && 
+      this.setState({currentDirectory: currentDirectory}, () => this.getContents());
   };
 
   nextSearch = (e) => { // This can probably do without comments.
