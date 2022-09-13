@@ -1,15 +1,49 @@
-import "./css/Template.css";
-import "./css/markdown-styling.css";
-import React from "react";
-import axios from "axios";
-import js from "./js/export";
-import Template from "./Template";
+/*
 
-const archive = process.env.REACT_APP_GIT_USER_REPO;
-const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
-const md = require("markdown-it")(); // https://github.com/markdown-it/markdown-it
 
-class App extends React.Component {
+
+  ____  _             _    _       _      
+ |  _ \| |           | |  | |     | |     
+ | |_) | | ___   __ _| |__| |_   _| |__   
+ |  _ <| |/ _ \ / _` |  __  | | | | '_ \  
+ | |_) | | (_) | (_| | |  | | |_| | |_) | 
+ |____/|_|\___/ \__, |_|  |_|\__,_|_.__(_)
+                 __/ |                    
+                |___/ 
+
+
+  Free to use an experiment with.
+                                              */
+
+
+// Libraries & Dependencies
+
+    import React from "react"; // Framework
+    import axios from "axios"; // HTTP Library
+    const md = require("markdown-it")(); // To convert Markdown to HTML: https://github.com/markdown-it/markdown-it
+
+// 'Facade' Pattern used for core logic.
+
+    import js from "./js/export";
+
+// Sort of the "base styling" this project comes with.
+// Feel free to use what's necessary.
+
+    import "./css/Template.css";
+    import "./css/markdown-styling.css";
+    import Template from "./Template";
+
+
+// Your Environment Variables:
+
+    const archive = process.env.REACT_APP_GIT_USER_REPO;
+    const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
+
+
+
+// And...
+
+class BlogHub extends React.Component {
   /*--------------------------
 
         Constructor        
@@ -194,4 +228,4 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+export default BlogHub;
