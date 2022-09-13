@@ -72,8 +72,10 @@ class BlogHub extends React.Component {
            
 --------------------------*/
   componentDidMount() {
+
     this.getPage(titlePage);
     this.getContents();
+
   }
   /*--------------------------
 
@@ -81,6 +83,8 @@ class BlogHub extends React.Component {
            
 --------------------------*/
   getPage = (page) => {
+    // Build Path ...
+
     let path = "";
     let currentDirectory = this.state.currentDirectory;
     if (currentDirectory.length === 1) {
@@ -90,11 +94,14 @@ class BlogHub extends React.Component {
         path += currentDirectory[i] + "/";
       }
     }
-    let request = axios.get(
+
+    // Request & Set Current Page
+
+    let requestPage = axios.get(
       `https://raw.githubusercontent.com/${archive}/master/${path}${page}`
     );
-    request.then((response) => {
-      let html = md.render(response.data);
+    requestPage.then((page) => {
+      let html = md.render(page.data);
       document.getElementById("right").scrollTop = 0; // Set window @ top of new page
       document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html);
                                                   js.Images.loadEmbeddedImages(archive);
@@ -102,28 +109,35 @@ class BlogHub extends React.Component {
   };
 
   getContents = () => {
+
+    // Build Path ... (yes, I know. I wrote this twice)
+
     let path = "";
     let currentDirectory = this.state.currentDirectory;
     if (currentDirectory.length === 1) {
       path = "";
     } else {
       for (var i = 1; i < currentDirectory.length; ++i) {
-        // jesus c* was it really that easy?
         path += currentDirectory[i] + "/";
       }
     }
 
-    let request = axios.get(
+    // Request & Set Current Directory Contents
+
+    let requestContents = axios.get(
       `https://api.github.com/repos/${archive}/contents/${path}`
     );
-    request.then((response) => {
+    requestContents.then((contents) => {
       this.setState({
-        contents: js.Markdown.returnMarkdownFiles(response.data),
+        contents: js.Markdown.returnMarkdownFiles(contents.data),
       });
     });
   };
 
   getVisitedDirectory = (directory) => {
+
+    // Okay three times. Don't judge.
+
     let path = "";
     let currentDirectory = this.state.currentDirectory;
 
@@ -138,16 +152,24 @@ class BlogHub extends React.Component {
         }
       }
     }
-    let chain = path.split("/")
-    chain.pop()
-    chain.unshift("root")
-    let request = axios.get(
+
+    // Revist & Set Directory Contents
+
+    let revistDirectory = axios.get(
       `https://api.github.com/repos/${archive}/contents/${path}`
     );
-    request.then((response) => {
+
+    revistDirectory.then((contents) => {
+
+      // When you revisit directories ... you have to readjust (purge some of) your directory path.
+      
+      let adjustPath = path.split("/") // Split the path we're revisiting.
+      adjustPath.pop() // Pop extra white space (consequence of split("/"))
+      adjustPath.unshift("root") // Insert "root" at the front of our path.
+
       this.setState({
-        contents: js.Markdown.returnMarkdownFiles(response.data),
-        currentDirectory: chain
+        contents: js.Markdown.returnMarkdownFiles(contents.data),
+        currentDirectory: adjustPath // readjusts the currentDirectory.
       });
     });
   };
