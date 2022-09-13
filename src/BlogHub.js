@@ -38,7 +38,7 @@ const md = require("markdown-it")();
 
 
 // Sort of the "base styling" this project comes with.
-// Feel free to use what you find necessary.
+// Feel free to use whatever you find useful.
 
     //import "./css/Template.css";
     //import "./css/markdown-styling.css";
