@@ -23,9 +23,9 @@ const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
 
 
   Free to use and experiment with.
-                                              */
 
-/*
+
+
   Libraries & Dependencies
 
       React from "react"; // Frontend Framework
