@@ -4,9 +4,9 @@ import "./css/Template.css";
 import js from "./js/export";
 import Template from "./Template";
 import "./css/markdown-styling.css";
+const md = require("markdown-it")();
 const archive = process.env.REACT_APP_GIT_USER_REPO;
 const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
-const md = require("markdown-it")();
 
 /*
 
