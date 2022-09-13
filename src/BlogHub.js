@@ -97,15 +97,13 @@ class BlogHub extends React.Component {
 
     // Request & Set Current Page
 
-    let requestPage = axios.get(
-      `https://raw.githubusercontent.com/${archive}/master/${path}${page}`
-    );
-    requestPage.then((page) => {
-      let html = md.render(page.data);
-      document.getElementById("right").scrollTop = 0; // Set window @ top of new page
-      document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html);
-                                                  js.Images.loadEmbeddedImages(archive);
-    });
+    let requestPage = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`);
+        requestPage.then((page) => {
+          let html = md.render(page.data);
+          document.getElementById("right").scrollTop = 0; // Set window @ top of new page
+          document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html);
+                                                      js.Images.loadEmbeddedImages(archive);
+        });
   };
 
   getContents = () => {
@@ -124,14 +122,11 @@ class BlogHub extends React.Component {
 
     // Request & Set Current Directory Contents
 
-    let requestContents = axios.get(
-      `https://api.github.com/repos/${archive}/contents/${path}`
-    );
-    requestContents.then((contents) => {
-      this.setState({
-        contents: js.Markdown.returnMarkdownFiles(contents.data),
-      });
-    });
+    let requestContents = axios.get(`https://api.github.com/repos/${archive}/contents/${path}`);
+        requestContents.then((contents) => {
+          this.setState({
+            contents: js.Markdown.returnMarkdownFiles(contents.data),
+        })});
   };
 
   getVisitedDirectory = (directory) => {
@@ -155,23 +150,20 @@ class BlogHub extends React.Component {
 
     // Revist & Set Directory Contents
 
-    let revistDirectory = axios.get(
-      `https://api.github.com/repos/${archive}/contents/${path}`
-    );
+    let revistDirectory = axios.get(`https://api.github.com/repos/${archive}/contents/${path}`);
+        revistDirectory.then((contents) => {
 
-    revistDirectory.then((contents) => {
+          // When you revisit directories ... you have to readjust (purge some of) your directory path.
+          
+          let adjustPath = path.split("/") // Split the path we're revisiting.
+              adjustPath.pop() // Pop extra white space (consequence of split("/"))
+              adjustPath.unshift("root") // Insert "root" at the front of our path.
 
-      // When you revisit directories ... you have to readjust (purge some of) your directory path.
-      
-      let adjustPath = path.split("/") // Split the path we're revisiting.
-      adjustPath.pop() // Pop extra white space (consequence of split("/"))
-      adjustPath.unshift("root") // Insert "root" at the front of our path.
-
-      this.setState({
-        contents: js.Markdown.returnMarkdownFiles(contents.data),
-        currentDirectory: adjustPath // readjusts the currentDirectory.
-      });
-    });
+          this.setState({
+            contents: js.Markdown.returnMarkdownFiles(contents.data),
+            currentDirectory: adjustPath // readjusts the currentDirectory.
+          });
+        });
   };
   /*--------------------------
 
