@@ -1,3 +1,13 @@
+import React from "react";
+import axios from "axios";
+import "./css/Template.css";
+import js from "./js/export";
+import Template from "./Template";
+import "./css/markdown-styling.css";
+const archive = process.env.REACT_APP_GIT_USER_REPO;
+const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
+const md = require("markdown-it")();
+
 /*
 
 
@@ -12,36 +22,34 @@
                 |___/ 
 
 
-  Free to use an experiment with.
+  Free to use and experiment with.
                                               */
 
 
 // Libraries & Dependencies
 
-    import React from "react"; // Framework
-    import axios from "axios"; // HTTP Library
-    const md = require("markdown-it")(); // To convert Markdown to HTML: https://github.com/markdown-it/markdown-it
+    //import React from "react"; // Frontend Framework
+    //import axios from "axios"; // HTTP Library
+    //const md = require("markdown-it")(); // Converting Markdown to HTML: https://github.com/markdown-it/markdown-it
 
 // 'Facade' Pattern used for core logic.
 
-    import js from "./js/export";
+    //import js from "./js/export";
+
 
 // Sort of the "base styling" this project comes with.
-// Feel free to use what's necessary.
+// Feel free to use what you find necessary.
 
-    import "./css/Template.css";
-    import "./css/markdown-styling.css";
-    import Template from "./Template";
+    //import "./css/Template.css";
+    //import "./css/markdown-styling.css";
+    //import Template from "./Template";
 
 
 // Your Environment Variables:
 
-    const archive = process.env.REACT_APP_GIT_USER_REPO;
-    const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
+    //const archive = process.env.REACT_APP_GIT_USER_REPO;
+    //const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
 
-
-
-// And...
 
 class BlogHub extends React.Component {
   /*--------------------------
