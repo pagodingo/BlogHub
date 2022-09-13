@@ -171,44 +171,45 @@ class BlogHub extends React.Component {
            
 --------------------------*/
   nextPage = (e) => {
+    // nextPage handles every file name click.
     let nextPage = e.target.innerHTML;
 
+    // if the file is actually a directory (has book-stack emoji), call 'nextDirectory'.
     if (nextPage.includes("📚")) {
       this.nextDirectory(e);
       return;
     }
 
+    // or if it's just a page ... 
     this.setState({ currentPage: nextPage }, () => {
       this.getPage(nextPage);
     });
   };
 
   nextDirectory = (e) => {
-    let currentDirectory = this.state.currentDirectory;
-    let nextDirectory = e.target.innerHTML
+    // So, you clicked on a folder-
 
+    // The current directory is referenced a few times.
+    // So we'll first localize it, that we don't have to keep retyping 'this.state.currentDirectory'
+    let currentDirectory = this.state.currentDirectory;
+
+    // Grab the requested folder name.
+    let folder = e.target.innerHTML
+    
+      // trim characters that are not a part of the actual folder name.
       .replace("📚", "")
       .replace(" ", "")
       .replace("/", "")
       .replace("root", "");
 
-    //Opening VISITED directories....
-    if (nextDirectory === "") {
+    // Push this folder (if we haven't been here before)
+    if (!currentDirectory.includes(folder)) {
+      currentDirectory.push(folder);
+
+         // We'll set our new 'current directory', for when we need to reference it later.
       this.setState({
-        currentDirectory: ["root"],
-        path: "",
-      });
-      return;
-    }
-
-    //Opening NEW directories...
-
-    if (!currentDirectory.includes(nextDirectory)) {
-      currentDirectory.push(nextDirectory);
-      this.setState(
-        {
           currentDirectory: currentDirectory,
-        },
+      }, // And define a call back to display our new contents.
         () => {
           this.getContents();
         }
