@@ -37,7 +37,7 @@ const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
       js from ./js/export
 
 
-  Sort of the "base styling" this project comes with.
+  The base styling this project comes with.
   Feel free to use whatever you find useful.
 
       ./css/Template.css
