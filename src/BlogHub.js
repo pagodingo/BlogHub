@@ -25,32 +25,32 @@ const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
   Free to use and experiment with.
                                               */
 
+/*
+  Libraries & Dependencies
 
-// Libraries & Dependencies
+      React from "react"; // Frontend Framework
+      axios from "axios"; // HTTP Library
+      md = require("markdown-it")(); // Converting Markdown to HTML: https://github.com/markdown-it/markdown-it
 
-    // React from "react"; // Frontend Framework
-    // axios from "axios"; // HTTP Library
-    // md = require("markdown-it")(); // Converting Markdown to HTML: https://github.com/markdown-it/markdown-it
+  'Facade' Pattern used for core logic.
 
-// 'Facade' Pattern used for core logic.
-
-    // js from "./js/export";
-
-
-// Sort of the "base styling" this project comes with.
-// Feel free to use whatever you find useful.
-
-    // "./css/Template.css";
-    // "./css/markdown-styling.css";
-    // Template from "./Template";
+      js from "./js/export";
 
 
-// Your Environment Variables:
+  Sort of the "base styling" this project comes with.
+  Feel free to use whatever you find useful.
 
-    //const archive = process.env.REACT_APP_GIT_USER_REPO;
-    //const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
+      "./css/Template.css";
+      "./css/markdown-styling.css";
+      Template from "./Template";
 
 
+  Your Environment Variables:
+
+      archive = process.env.REACT_APP_GIT_USER_REPO;
+      titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
+
+                                                                                  */
 class BlogHub extends React.Component {
   /*--------------------------
 
