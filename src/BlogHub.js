@@ -48,9 +48,7 @@ const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
   Your Environment Variables:
 
       archive = process.env.REACT_APP_GIT_USER_REPO;
-      titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
-
-                                                                                  */
+      titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;*/
 class BlogHub extends React.Component {
   /*--------------------------
 
