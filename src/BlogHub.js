@@ -217,7 +217,7 @@ class BlogHub extends React.Component {
     }
   };
 
-  nextSearch = (e) => {
+  nextSearch = (e) => { // This can probably do without comments.
     let input = e.target.value;
     this.setState({ nextSearch: input });
   };
