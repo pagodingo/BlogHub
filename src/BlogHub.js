@@ -174,7 +174,7 @@ class BlogHub extends React.Component {
     // nextPage handles every file name click.
     let nextPage = e.target.innerHTML
     .replace(" ","")
-    .replace("📝","") // because I like to being cute and writing code with emojis 😂🤣🗿
+    .replace("📝","") // because I like being cute and writing code with emojis 😂🤣🗿
 
     // if the file is actually a directory (has book-stack emoji), call 'nextDirectory'.
     if (nextPage.includes("📚")) {
