@@ -3,7 +3,7 @@
 This project was created to help users host and browse through a repository of Markdown files & images using GitHub.
 
 <a href="https://bloghubdemo.netlify.app/" target="_blank">Live Demo</a>
-<a href="https://bloghubdemo.netlify.app/"><img src="./preview-1.png" target="_blank"/></a>
+<a href="https://bloghubdemo.netlify.app/"><img src="./preview.png" target="_blank"/></a>
 
 #### 1. Create or determine a <u>source repository.</u>
 
