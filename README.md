@@ -2,7 +2,7 @@
 
 This project was created to help users host and browse through a repository of Markdown files & images using GitHub.
 
-For example, <a href="https://bloghubdemo.netlify.app/" target="_blank">a blog where I frequently offload new knowledge about PEGA</a>: a low-code, Business Process Management platform.
+For example, <a href="https://bloghubdemo.netlify.app/" target="_blank">a blog where I frequently offload knowledge of PEGA</a>: a low-code, Business Process Management platform.
 
 <a href="https://bloghubdemo.netlify.app/"><img src="./preview.png" target="_blank"/></a>
 
