@@ -133,9 +133,6 @@ h1:first-child {
 h1:first-letter {
     color: #ff4141;
 }
-h2:first-letter {
-    color: #ff4141;
-}
 h2 {
     font-size: 150%;
     margin-top: 1.5em;
