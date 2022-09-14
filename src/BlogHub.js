@@ -22,7 +22,7 @@ const titlePage = process.env.REACT_APP_GIT_ARCHIVE_TITLEPAGE;
                 |___/ 
 
 
-  Free to use and experiment with.
+  Free to use and experiment.
 
 
 
