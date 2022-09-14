@@ -27,7 +27,7 @@ const Template = ({ currentPage,
           return (
             <div id="contents" key={i}>
               <a href={"/#"} id="link" onClick={(e) => nextPage(e)}>
-                {content}
+              {content}
               </a>
             </div>
           )
