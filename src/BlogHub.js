@@ -192,7 +192,7 @@ class BlogHub extends React.Component {
     // So, you clicked on a folder ...
 
     // The current directory is referenced a few times.
-    // So we'll first localize it, that we don't have to keep retyping 'this.state.currentDirectory'
+    // So we'll first localize it, that way we don't have to keep typing 'this.state.currentDirectory'
     let currentDirectory = this.state.currentDirectory;
 
     // Grab the requested folder name.
