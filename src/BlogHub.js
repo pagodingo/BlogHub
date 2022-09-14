@@ -161,7 +161,7 @@ class BlogHub extends React.Component {
 
           this.setState({
             contents: js.Markdown.returnMarkdownFiles(contents.data),
-            currentDirectory: adjustPath // readjusts the currentDirectory.
+            currentDirectory: adjustPath // readjusts the currentDirectory to where we now are.
           });
         });
   };
