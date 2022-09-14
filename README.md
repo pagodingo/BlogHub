@@ -8,7 +8,7 @@ For example, <a href="https://bloghubdemo.netlify.app/" target="_blank">a blog w
 
 ** **NOTE** ** 
 
-Something I knew was going to happen but I was unsure of how to resolve ... getting markdown files is easy, because github offers a *www.raw.* extension that serves raw file contents. But, getting folder contents requires using the github api, which will be rate limited if you're not careful. I have no fix in place to cache results. So, every time you open a folder (recently visited or not), you've made an api call, and github gets very unhappy about that after 9 or so times in a span of 10 seconds. Your app won't freeze for long, but it does for a moment ... for anywhere between 15 seconds to 30 minutes. 😬😬😬
+Something I knew was going to happen but I was unsure of how to resolve ... getting markdown files is easy, because github offers a *www.raw.* extension that serves raw file contents. But, getting folder contents requires using the github api, which will be rate limited if you're not careful. I have no fix in place to cache results. So, every time you open a folder (recently visited or not), you've made an api call, and github gets very unhappy about that if you do it say 9 times in a span of 10 seconds. Your blog won't deny requests for long, but it will for a moment ... and it could be for any time between 15 seconds to 30 minutes. 😬😬😬
 
 #### 1. Create or determine a <u>source repository.</u>
 
