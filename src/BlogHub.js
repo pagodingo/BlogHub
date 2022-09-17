@@ -161,7 +161,7 @@ class BlogHub extends React.Component {
 
           this.setState({
             contents: js.Markdown.returnMarkdownFiles(contents.data),
-            currentDirectory: adjustPath // readjusts the currentDirectory to where we now are.
+            currentDirectory: adjustPath // readjusts the currentDirectory to where we are now.
           });
         });
   };
@@ -174,7 +174,7 @@ class BlogHub extends React.Component {
     // nextPage handles every file name click.
     let nextPage = e.target.innerHTML
     .replace(" ","")
-    .replace("📝","") // because I like being cute and writing code with emojis 😂🤣🗿
+    .replace("📝","").replace("🏠", "") // because I like being cute and writing code with emojis 😂🤣🗿
 
     // if the file is actually a directory (has book-stack emoji), call 'nextDirectory'.
     if (nextPage.includes("📚")) {
@@ -244,3 +244,17 @@ class BlogHub extends React.Component {
   }
 }
 export default BlogHub;
+
+
+/* Things I would change ... 
+
+1) Less coupling.
+
+    The app has functions that work on too many things. For instance,
+    nextPage. It replaces characters
+
+    // nevermind this is actually good lol. I can't find anything wrong.
+
+    I think the only thing that needs work is the not-DRY path building issue.
+    
+*/ 

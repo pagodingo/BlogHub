@@ -4,7 +4,11 @@ Markdown.prototype.returnMarkdownFiles = (source) => {
   let files = []
   source.forEach(item => {
     if (item.name.endsWith('.md')){
-      files.push(`📝 ${item.name}`)
+      if (item.name === "Resources.md"){
+        files.push(`🏠 ${item.name}`)
+      } else {
+        files.push(`📝 ${item.name}`)
+      }
     } else if (item.type === "dir") {
       if (item.name !== "images"){
         files.push(`📚 ${item.name}`)
