@@ -8,7 +8,7 @@ For example, <a href="https://bloghubdemo.netlify.app/" target="_blank">a blog w
 
 ** **Note** ** [September 14, 2022]
 
-Quick note on something I knew was bound to happen, but I was unsure of how to properly avoid ... getting markdown files is easy, because github offers a *www.raw.* extension that serves raw file contents. But, getting folder contents requires using the github api, which is rate limited. A cache has not yet been implemented for this project. So ... every time you open a folder (recently visited or not), you've made an api call. And ... github gets very unhappy about that after a while, say, if you do it 10 times in the span of 10 seconds. Your blog won't deny requests for long, but it will for a moment ... and if it does, it could be for anywhere between 15 seconds to 30 minutes. 🌝
+Quick note on something I knew was bound to happen, but I was unsure of how to properly avoid ... getting markdown files is easy, because github offers a *www.raw.github* extension that serves raw file contents. But, getting folder contents requires using the github api, which is rate limited. A cache has not yet been implemented for this project. So ... every time you open a folder (recently visited or not), you've made an api call. And ... github gets very unhappy about that after a while, say, if you do it 10 times in the span of 10 seconds. Your blog won't deny requests for long, but it will for a moment ... and if it does, it could be for anywhere between 15 seconds to 30 minutes. 🌝
 
 So ... what this means is **the less folders the better**. The fewer folders you have, the less you make api calls.
 
