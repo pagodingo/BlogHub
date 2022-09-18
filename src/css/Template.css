@@ -50,10 +50,6 @@ overrides some markdown styling
   padding: 100px;
 }
 
-#contents::before{
-  counter-increment: contentNumber; content: counter(contentNumber) ".";
-}
-
 #left {
   background-color: #ffffff;
   text-align: right;
