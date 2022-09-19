@@ -244,17 +244,3 @@ class BlogHub extends React.Component {
   }
 }
 export default BlogHub;
-
-
-/* Things I would change ... 
-
-1) Less coupling.
-
-    The app has functions that work on too many things. For instance,
-    nextPage. It replaces characters
-
-    // nevermind this is actually good lol. I can't find anything wrong.
-
-    I think the only thing that needs work is the not-DRY path building issue.
-    
-*/ 
