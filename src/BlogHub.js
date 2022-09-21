@@ -219,6 +219,7 @@ class BlogHub extends React.Component {
            
 --------------------------*/
   render() {
+    //search logic
     const keywords = this.state.nextSearch.split(" ");
     const filteredContents = this.state.contents.filter((c) => {
       for (var i = 0; i < keywords.length; ++i) {

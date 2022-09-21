@@ -92,9 +92,6 @@ a {
     text-decoration: none;
     color: #202355;
 }
-a:hover {
-    text-decoration: underline;
-}
 
 table a {
     color: rgb(0, 106, 255);

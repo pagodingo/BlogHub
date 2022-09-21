@@ -39,7 +39,7 @@ Host Recommendations
 - <a href="https://netlify.com" target="_blank">Netlify</a>
 - <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
 ---
-  **Bugs & Features:**
+  **Bugs & New Features:**
 
 Being able to **switch between multiple repositories** is next on the agenda. But before that can happen, there are a few **kinks that need to be worked out**:
 

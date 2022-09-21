@@ -73,4 +73,22 @@ input {
   border-bottom: 1px solid #f6f8fa;
 }
 
+#contents {
+  transition: 0.3s ease 0s;
+}
 
+#contents:hover{
+  transform: translateX(-5px);
+  transition: 0.3s ease 0s;
+}
+
+#contents > a:hover {
+  color:#364049bc !important;
+  transition: 0.3s ease 0s;
+  border-right: 1px solid #364049bc;
+  padding-right: 5px;
+}
+
+#right a:hover {
+  text-decoration: underline;
+}
