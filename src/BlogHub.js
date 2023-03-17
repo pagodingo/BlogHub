@@ -100,10 +100,12 @@ class BlogHub extends React.Component {
     let requestPage = axios.get(`https://raw.githubusercontent.com/${archive}/master/${path}${page}`);
         requestPage.then((page) => {
           let html = md.render(page.data);
+          console.log(js.Markdown.cleanBeforeRender(html))
           document.getElementById("right").scrollTop = 0; // Set window @ top of new page
           document.getElementById("main").innerHTML = js.Markdown.cleanBeforeRender(html);
                                                       js.Images.loadEmbeddedImages(archive);
         });
+
   };
 
   getContents = () => {
