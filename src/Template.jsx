@@ -11,6 +11,7 @@ const Template = ({ currentPage,
     if (e !== 'root'){
       list.push(e)
     }
+    return true;
   })
   const editOnGithubHandler = () => {
     window.open(
