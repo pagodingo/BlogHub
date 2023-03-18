@@ -13,13 +13,16 @@ body, html {
 
 @media (min-width: 200px){
   #right {
+    margin-left: 0px;
+    text-align: left;
     position: absolute;
     top: 0px;
     bottom: 0;
     left: 0;
-    width: 75%;
+    width: 70%;
     overflow-y: scroll; 
     overflow-x: hidden;
+    border-right: 5px solid #f6f8fa;
   }
   
   #left {
@@ -42,13 +45,17 @@ overrides some markdown styling
 
 }
 
+#path {
+  text-align: left;
+}
 
 #link{
   padding: 0px;
 }
 
 #main {
-  padding: 100px;
+  padding: 35px;
+  padding-right: 20px;
 }
 
 #left {
@@ -63,7 +70,6 @@ overrides some markdown styling
   top: 0; position: sticky;
   background: #ffffff;
   margin-top: 0;
-  margin-left: 50px;
 }
 
 input {
@@ -76,6 +82,7 @@ input {
 
 #contents {
   transition: 0.3s ease 0s;
+  text-align: left;
 }
 
 #contents:hover{

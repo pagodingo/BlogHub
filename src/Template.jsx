@@ -4,25 +4,32 @@ const Template = ({ currentPage,
                     nextPage,
                     nextSearch, 
                     currentDirectory,
-                    getVisitedDirectory
+                    getVisitedDirectory,
                   }) => {
+  var list = []
+  currentDirectory.map(e => {
+    if (e !== 'root'){
+      list.push(e)
+    }
+  })
   const editOnGithubHandler = () => {
     window.open(
-    `https://www.github.com/${archive}/edit/master/${currentPage}`, "_blank");
+    `https://www.github.com/${archive}/edit/master/${list.join('/')}/${currentPage}`, "_blank");
   }
+
   return (
     <>
       <div id="left">     
+      <br></br>
         <p style={{ textAlign: "left"}}>Contents</p>
-        <input type="text" placeholder="search" onChange={nextSearch} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
-        {currentDirectory.filter(dir => dir !== "").map((dir, i) => {
+        <div id="path">{currentDirectory.filter(dir => dir !== "").map((dir, i) => {
           return (
             <a href={"/#"} id="link" key={i} onClick={ () => getVisitedDirectory(dir)}>
               {"/" + dir}
             </a>
           )
-        })}
-        <hr></hr>
+        })}</div>
+        <input type="text" placeholder="search" onChange={nextSearch} style={{top: -11.5, position: 'sticky', background: 'white', borderTop: '10px solid white', width: '100%'}}></input>
         {contents.map((content, i) => {
           return (
             <div id="contents" key={i}>
@@ -35,14 +42,7 @@ const Template = ({ currentPage,
       </div>
 
       <div id="right">
-        <div className="chevron" style={{
-                background: '#ddd',
-                position: 'fixed',
-                top: '15px',
-                marginLeft: '50px',
-                height: '20px',
-                transform: 'skewY(-40deg)',
-              }}></div>
+
         <p id="page-title" style={{textDecoration: "underline", borderBottom: "1px solid #f6f8fa"}}>{currentPage}</p>
         <p style={{ background: "#ffffff", textAlign: 'right', position: 'fixed', right: '15px', top: '0', margin: '10px', cursor: 'pointer'}} onClick={editOnGithubHandler}><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="gitty-cat" style={{width: '23px', height: 'auto', position: 'fixed', right: '120px', top: 1}} />Edit on GitHub</p>
         <div id="main" />
