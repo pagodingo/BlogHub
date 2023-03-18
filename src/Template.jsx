@@ -6,16 +6,10 @@ const Template = ({ currentPage,
                     currentDirectory,
                     getVisitedDirectory,
                   }) => {
-  var list = []
-  currentDirectory.map(e => {
-    if (e !== 'root'){
-      list.push(e)
-    }
-    return true;
-  })
+                    
   const editOnGithubHandler = () => {
     window.open(
-    `https://www.github.com/${archive}/edit/master/${list.join('/')}/${currentPage}`, "_blank");
+    `https://www.github.com/${archive}/edit/master/${[...currentDirectory.map(a =>{ if (a !=='root') return a})].join('/')}/${currentPage}`, "_blank");
   }
 
   return (
