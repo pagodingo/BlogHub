@@ -23,9 +23,9 @@ Example: PagoDingo/notes-pega, 'Data-Page.md'
 
 #### 3. Publish this project to any host provider of your choosing, and make changes to your content 💻 on-the-fly.
 
-#### Then, once you're finished, push new changes to your source repository.
+#### Changes you make (push) to your source repository will reflect on your site immediately (assuming your cache is clear).
 
-#### Updates happen immediately while using either of the recommendations listed below:
+#### 
 ---
 Host Recommendations
 - <a href="https://netlify.com" target="_blank">Netlify</a>
