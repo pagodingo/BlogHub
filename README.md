@@ -1,6 +1,6 @@
 ### Blogs powered by GitHub
 
-This project was created to help people quickly host their own knowledge base from a repository of Markdown files & images on GitHub.
+This project was created to help people quickly create their own knowledge base from a repository of Markdown files & images hosted on GitHub.
 
 For example, <a href="https://bloghubdemo.netlify.app/" target="_blank">a blog where I frequently offload knowledge of PEGA</a>: a low-code, Business Process Management platform.
 
