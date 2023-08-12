@@ -23,7 +23,7 @@ Example: PagoDingo/notes-pega, 'Data-Page.md'
 
 #### 3. Publish this project to any host provider of your choosing, and make changes to your content 💻 on-the-fly.
 
-#### Changes you make (push) to your source repository will reflect on your site immediately (assuming your cache is clear).
+#### Changes you make (push) to your source repository will reflect on your site as soon as you refresh.
 
 #### 
 ---
