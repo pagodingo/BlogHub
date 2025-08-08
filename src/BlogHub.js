@@ -62,7 +62,7 @@ class BlogHub extends React.Component {
     this.state = {
       contents: [],
       currentPage: titlePage,
-      currentDirectory: ["root"],
+      currentDirectory: ["home"],
       nextSearch: "",
     };
   }
@@ -138,7 +138,7 @@ class BlogHub extends React.Component {
     let path = "";
     let currentDirectory = this.state.currentDirectory;
 
-    if (directory === "root") {
+    if (directory === "home") {
       path = "";
 
     } else {
@@ -159,7 +159,7 @@ class BlogHub extends React.Component {
           
           let adjustPath = path.split("/") // Split the path we're revisiting.
               adjustPath.pop() // Pop extra white space (consequence of split("/"))
-              adjustPath.unshift("root") // Insert "root" at the front of our path.
+              adjustPath.unshift("home") // Insert "home" at the front of our path.
 
           this.setState({
             contents: js.Markdown.returnMarkdownFiles(contents.data),
@@ -204,7 +204,7 @@ class BlogHub extends React.Component {
       .replace("📚", "")
       .replace(" ", "")
       .replace("/", "")
-      .replace("root", "");
+      .replace("home", "");
 
       // Add New Folder, Set Current Directory, Get New Contents.
       currentDirectory.push(folder) && 
